@@ -1,43 +1,39 @@
 <div id="content">
   
-    <section id="createProfile" class="content-width" data-ng-controller="DevprofilesController"> 
+    <section data-ng-controller="DevprofilesController" id="createProfile" class="content-width" > 
 
-<div class="col-md-12">
-        
-        <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-            
-            <fieldset>
-                <div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
-                    
-                    <label class="control-label" for="title">Title</label>
-                    <div class="controls">
-                        <input name="title" type="text" data-ng-model="name" id="title" class="form-control" placeholder="Title" required>
-                    </div>
+<!-- <div class="col-md-12">
 
-                </div>
-            
-               <!--  <div class="form-group">
+    <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 
-                    <label class="control-label" for="content">Content</label>
-                    <div class="controls">
-                        <textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-                    </div>
+    <fieldset>
+    <div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
 
-                </div> -->
-            
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
-                </div>
-                
-                <div data-ng-show="error" class="text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
-            </fieldset>
-
-        </form>
+    <label class="control-label" for="title">Title</label>
+    <div class="controls">
+    <input name="title" type="text" data-ng-model="name" id="title" class="form-control" placeholder="Title" required>
     </div>
 
-    
+    </div>
+
+    <div class="form-group">
+
+    <label class="control-label" for="content">Content</label>
+    <div class="controls">
+    <textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+    </div>
+
+    </div>
+
+    <div class="form-group">
+    <input type="submit" class="btn btn-default">
+    </div>
+
+
+    </fieldset>
+
+    </form>
+</div> -->
 
         <div class="top-profile">
             
@@ -46,14 +42,24 @@
             <div class="profile-panel">
                 
                 <div class="profile-info">
-                    <h3>Add name</h3>
-                    <p><a href="#">Add location</a></p>
+
+                    <h3 ng-click="clickedName()" ng-show="!showInputName">{{ name || 'Add name'}}</h3>
+                    
+                    <div id="profileName-cont" ng-show="showInputName" name="title"> 
+                        <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKey($event.keyCode)" data-ng-model="name" type="text" placeholder="Write your name" maxlength="50" required>
+                        <span ng-click="showInputName = false" class="glyphicon glyphicon-ok-sign"></span>
+                    </div>
+                  
+                    <p>
+                        <a href="#">Add location</a>
+                        <input id="locationInput" type="text">
+                    </p>
                     <p><a href="#">Add languages</a></p>
                     <p><a href="#">Add skill</a></p>
                 </div>
                 
                 <div class="profile-actions">
-                    <p><a href="#" class="black-btn"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
+                    <p><a href="#" class="black-btn" data-ng-click="create()"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
                     <p>(You can only publish a completed profile) </p>
                     <p><a href="#" class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
                 </div>

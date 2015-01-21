@@ -62,5 +62,16 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				devprofileId: $stateParams.devprofileId
 			});
 		};
+
+		$scope.clickedName = function(){
+			$scope.showInputName = true;
+			$scope.getKey = function(keyCode){
+				if (keyCode == "13"){
+					$scope.showInputName = false;
+				}
+			};
+		}
+
 	}
 ]);
+

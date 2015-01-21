@@ -167,7 +167,7 @@ header.navbar{
 				font-size: 3em;
 				font-family: 'Roboto', sans-serif;
 				font-weight: 100;
-				margin-top: 10px;
+				margin: 10px 0 16px 0;
 			}
 			.profile-info p a{
 				font-weight: bold;
@@ -417,6 +417,33 @@ footer  {
 		margin-left: 15px;
 		
 	}
+
+
+
+/*Interaction stage /////////////////////// */
+#profileName-cont{
+	font-size: 2em;
+	width: 95%;
+	margin: 10px 0;
+	background: white;
+	border: 1px solid #C0C0C0;
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	position: relative;
+}
+
+input#profileName{
+	border: none;
+	padding: 5px;
+}
+
+#profileName-cont span{
+	color: gainsboro;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+}
+
 
 
 /* Landscape phones and down */
