@@ -9,6 +9,10 @@ angular.module('devprofiles').config(['$stateProvider',
 			url: '/devprofiles',
 			templateUrl: 'modules/devprofiles/views/list-devprofiles.client.view.html'
 		}).
+		state('tstview', {
+			url: '/devprofiles/tstview',
+			templateUrl: 'modules/devprofiles/views/tst.view.html'
+		}).
 		state('createDevprofile', {
 			url: '/devprofiles/create',
 			templateUrl: 'modules/devprofiles/views/create-devprofile.client.view.html'
