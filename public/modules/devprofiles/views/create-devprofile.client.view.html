@@ -42,37 +42,39 @@
             <div class="profile-panel">
                 
                 <div class="profile-info">
+
                 <!-- Developer Name -->
-                    <h3 ng-click="clickedName()" ng-focus="showInputName" ng-show="!showInputName">{{ devName || 'Add name'}}</h3>
+                    <h3 ng-click="clickedName()" ng-focus="showInputName" ng-show="!showInputName">{{name || 'Add name'}}</h3>
                     <div id="profileName-cont" ng-show="showInputName" name="title"> 
                         <span ng-click="showInputName = false" class="glyphicon glyphicon-ok-sign"></span>
-                        <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKeyName($event.keyCode)" data-ng-model="devName" type="text" placeholder="Write your name" maxlength="50" required>
+                        <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKeyName($event.keyCode)" data-ng-model="name" type="text" placeholder="Write your name" maxlength="50" >
                     </div>
                     
                 <!-- Developer location -->
-                    <p>
-                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devLocation || 'Add location'}} </span>
-                        <input id="pac-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
-                    </p>
+                    <div class="devInfo">
+                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()">{{devLocation || 'Add location'}} </span>
+                        <input id="pac-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="showInputLocation=false" data-ng-model="location" class="controls" type="text" placeholder="Search Location">
+                    </div>
                     
-                <!-- Developer languages     -->
-                    <p>
-                        <span ng-init="setLanguages()" ng-show="!showInputLanguages" ng-click="clickedLanguages()" href="#">{{devLanguages || 'Add languages'}} </span>
-                        <input id="languages-input" ng-show="showInputLanguages" ng-keyup="getKeyLanguages($event.keyCode)" ng-blur="blurLanguages()"  data-ng-model="devLanguages" class="controls" type="text" placeholder="Add languages separated by ,">
-                    </p>
+                <!-- Developer languages -->
+                    <div class="devInfo">
+                        <p ng-show="!showInputLang" ng-click="showInputLang = true">{{devLangs || 'Add languages'}} </p>
+                        <input id="languages-input" ng-show="showInputLang" ng-blur="showInputLang = false" data-ng-model="devLangs" type="text" placeholder="Add languages comma separated">
+                        <span ng-show="showInputLang" ng-click="showInputLang = false" class="glyphicon glyphicon-ok-sign"></span>
+                    </div>
                     
                 <!-- Developer skills -->
-                    <p>
+                   <!--  <p class="devInfo">
                         <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devSkill || 'Add skill'}} </span>
                         <input id="skill-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
-                    </p>
+                    </p> -->
 
                 </div>
                 
                 <div class="profile-actions">
-                    <p><a href="#" class="black-btn" data-ng-click="create()"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
+                    <p><a class="black-btn" data-ng-click="create()"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
                     <p>(You can only publish a completed profile) </p>
-                    <p><a href="#" class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
+                    <p><a  class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
                 </div>
             </div>
 
@@ -122,7 +124,7 @@
                 <div class="item-content">
                     <div ng-show="showMapLocation">
                         <map id="map-canvas"> </map>
-                        <a class="map-link" href="{{mapLink}}" target="blank">{{devName}} lives in {{devLocation}}</a>
+                        <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}}</a>
                     </div>
 
                 <a class="squared-link" href="#">Add content ...</a></div>

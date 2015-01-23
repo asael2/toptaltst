@@ -167,7 +167,7 @@ header.navbar{
 				font-size: 3em;
 				font-family: 'Roboto', sans-serif;
 				font-weight: 100;
-				margin: 15px 0 ;
+				margin-top: 15px;
 				text-transform: capitalize;
 			}
 			.profile-info p a{
@@ -444,6 +444,15 @@ footer  {
 		top: 10px;
 		right: 5px;
 	}
+
+	.devInfo input{
+		width: 90%;
+		margin: 2px
+		background: white;
+		border: 1px solid #C0C0C0;
+	}
+
+
 
 #createProfile > div:nth-child(2) > div:nth-child(7) > div{
 	position: relative;

@@ -111,10 +111,22 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					map.setZoom(11);
 					$scope.devLocation = place.formatted_address;
 					$scope.showInputLocation = false;
-					$scope.mapLink = place.url;
+					$scope.mapLink = place.url; 
+					google.maps.event.trigger(map,'resize');
 				});
 			}
-		}
+		};
+
+		$scope.setLanguages = function(){
+			$scope.showInputLang = true;
+			$scope.getKeyName = function(keyCode){
+				if (keyCode == '13'){
+					$scope.showInputLang = false;
+				}
+			};
+		};
+
+
 
 	}
 ]);
