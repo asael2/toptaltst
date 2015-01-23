@@ -42,21 +42,31 @@
             <div class="profile-panel">
                 
                 <div class="profile-info">
-
-                    <h3 ng-click="clickedName()" ng-focus="showInputName" ng-show="!showInputName">{{ name || 'Add name'}}</h3>
+                <!-- Developer Name -->
+                    <h3 ng-click="clickedName()" ng-focus="showInputName" ng-show="!showInputName">{{ devName || 'Add name'}}</h3>
                     <div id="profileName-cont" ng-show="showInputName" name="title"> 
-                        <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKeyName($event.keyCode)" data-ng-model="name" type="text" placeholder="Write your name" maxlength="50" required>
                         <span ng-click="showInputName = false" class="glyphicon glyphicon-ok-sign"></span>
+                        <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKeyName($event.keyCode)" data-ng-model="devName" type="text" placeholder="Write your name" maxlength="50" required>
                     </div>
-      
+                    
+                <!-- Developer location -->
                     <p>
                         <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devLocation || 'Add location'}} </span>
                         <input id="pac-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
                     </p>
+                    
+                <!-- Developer languages     -->
+                    <p>
+                        <span ng-init="setLanguages()" ng-show="!showInputLanguages" ng-click="clickedLanguages()" href="#">{{devLanguages || 'Add languages'}} </span>
+                        <input id="languages-input" ng-show="showInputLanguages" ng-keyup="getKeyLanguages($event.keyCode)" ng-blur="blurLanguages()"  data-ng-model="devLanguages" class="controls" type="text" placeholder="Add languages separated by ,">
+                    </p>
+                    
+                <!-- Developer skills -->
+                    <p>
+                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devSkill || 'Add skill'}} </span>
+                        <input id="skill-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
+                    </p>
 
-
-                    <p><a href="#">Add languages</a></p>
-                    <p><a href="#">Add skill</a></p>
                 </div>
                 
                 <div class="profile-actions">
@@ -110,8 +120,10 @@
             <div class="flex-item">
                 <h4>Location</h4>
                 <div class="item-content">
-  
-                    <map id="map-canvas"> </map>
+                    <div ng-show="showMapLocation">
+                        <map id="map-canvas"> </map>
+                        <a class="map-link" href="{{mapLink}}" target="blank">{{devName}} lives in {{devLocation}}</a>
+                    </div>
 
                 <a class="squared-link" href="#">Add content ...</a></div>
             </div>

@@ -73,57 +73,47 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		};
 
 		$scope.setLocation = function(){
-			
-			
 
-			// $scope.getKeyLocation = function(keyCode){
-			// 	// console.log(document.getElementById("pac-input").value );
-				
-			// 	//$scope.location = document.getElementById("pac-input").value;
-			// 	if (keyCode == '13'){
-			// 		$scope.showInputLocation = false;
-			// 	}
-			// }
+			$scope.showMapLocation = false;
 			
 			$scope.blurLocation = function(){
 				$scope.showInputLocation = false;
-				// console.log( $scope.location);
 			}
 			
 			$scope.clickedLocation = function(){
 				$scope.showInputLocation = true;
-				// console.log("clickedLocation");
-				// $scope.devLocation = place.formatted_address;
-			
-			// Google Maps
-			var initialOpts = {
-				center:new google.maps.LatLng(0,0),
-				zoom:0,
-				mapTypeControl: false,
-				navigationControl: false,
-				disableDefaultUI: true,
-                // disableDoubleClickZoom:true,
-                draggable: false,
-                streetViewControl:false,
-                mapTypeId:google.maps.MapTypeId.TERRAIN
-			};
-			var map = new google.maps.Map(document.getElementById("map-canvas"), initialOpts);
-			// Google Autocomplete
-			var input = (document.getElementById('pac-input'));	
-			var options = {
-			  types: ['(cities)']
-			};
-			var autocomplete = new google.maps.places.Autocomplete(input, options);
-			google.maps.event.addListener(autocomplete, 'place_changed', function() {	
-				var place = autocomplete.getPlace();
-				map.setCenter(place.geometry.location);
-				map.setZoom(11);
-				$scope.devLocation = place.formatted_address;
-				$scope.showInputLocation = false;
-				console.log(place.formatted_address);
-				// debugger;
-			});
-			}	
+				$scope.showMapLocation = true;
+				$scope.devLocation = "";
+
+				// Google Autocomplete
+				var input = (document.getElementById('pac-input'));	
+				var options = {
+				  types: ['(cities)']
+				};
+				var autocomplete = new google.maps.places.Autocomplete(input, options);
+				
+				// Google Map
+				var initialOpts = {
+					center:new google.maps.LatLng(0,0),
+					zoom:0,
+					mapTypeControl: false,
+					navigationControl: false,
+					disableDefaultUI: true,
+	                // disableDoubleClickZoom:true,
+	                draggable: false,
+	                streetViewControl:false,
+	                mapTypeId:google.maps.MapTypeId.TERRAIN
+				};
+				var map = new google.maps.Map(document.getElementById("map-canvas"), initialOpts);
+				google.maps.event.addListener(autocomplete, 'place_changed', function() {	
+					var place = autocomplete.getPlace();
+					map.setCenter(place.geometry.location);
+					map.setZoom(11);
+					$scope.devLocation = place.formatted_address;
+					$scope.showInputLocation = false;
+					$scope.mapLink = place.url;
+				});
+			}
 		}
 
 	}

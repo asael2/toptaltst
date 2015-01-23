@@ -167,7 +167,8 @@ header.navbar{
 				font-size: 3em;
 				font-family: 'Roboto', sans-serif;
 				font-weight: 100;
-				margin: 10px 0 16px 0;
+				margin: 15px 0 ;
+				text-transform: capitalize;
 			}
 			.profile-info p a{
 				font-weight: bold;
@@ -444,8 +445,31 @@ footer  {
 		right: 5px;
 	}
 
+#createProfile > div:nth-child(2) > div:nth-child(7) > div{
+	position: relative;
+}
 
+map#map-canvas{
+	height: 240px; 
+	margin: 0px; 
+	padding: 0px;
+	top: -48px;
+}
 
+.map-link, .map-link:hover, .map-link:active {
+	display: block;
+	height: 65px;
+	width: 100%;
+	position: absolute;
+	top: 128px;
+	vertical-align: middle;
+	text-align: left;
+	padding: 10px 20px;
+	color: white;
+	background: url(../img/linkorner.png)rgba(0, 0, 0, 0.8) no-repeat bottom right;
+	font-weight: 100;
+	letter-spacing: 1px;
+}
 
 
 
