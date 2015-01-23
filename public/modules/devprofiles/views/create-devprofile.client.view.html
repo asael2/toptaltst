@@ -43,15 +43,14 @@
                 
                 <div class="profile-info">
 
-                    <h3 ng-click="clickedName()" ng-show="!showInputName">{{ name || 'Add name'}}</h3>
-
+                    <h3 ng-click="clickedName()" ng-focus="showInputName" ng-show="!showInputName">{{ name || 'Add name'}}</h3>
                     <div id="profileName-cont" ng-show="showInputName" name="title"> 
                         <input id="profileName" ng-blur="showInputName = false" ng-keyup="getKeyName($event.keyCode)" data-ng-model="name" type="text" placeholder="Write your name" maxlength="50" required>
                         <span ng-click="showInputName = false" class="glyphicon glyphicon-ok-sign"></span>
                     </div>
       
                     <p>
-                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{ location || 'Add location'}} </span>
+                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devLocation || 'Add location'}} </span>
                         <input id="pac-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
                     </p>
 
@@ -112,7 +111,7 @@
                 <h4>Location</h4>
                 <div class="item-content">
   
-                    <map id="map-canvas" zoom="11" center="[40.47, 73.58]" map-type-id="TERRAIN"> </map>
+                    <map id="map-canvas"> </map>
 
                 <a class="squared-link" href="#">Add content ...</a></div>
             </div>
