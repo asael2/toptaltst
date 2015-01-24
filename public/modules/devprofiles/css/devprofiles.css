@@ -512,11 +512,14 @@ footer  {
 		.skillist li:nth-child(1), .skillist li:nth-child(2){
 			background: #000000;
 		}
-		.skillist li:nth-child(3){
+		.skillist li:nth-child(3), .skillist li:nth-child(4){
 			background: #676767;
 		}
-		.skillist li:nth-child(4){
+		.skillist li:nth-child(5), .skillist li:nth-child(6){
 			background: #AAAAAA;
+		}
+		.removeSkill{
+			cursor: pointer;
 		}
 
 #createProfile > div:nth-child(2) > div:nth-child(7) > div{

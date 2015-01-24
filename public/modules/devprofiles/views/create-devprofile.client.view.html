@@ -37,7 +37,10 @@
 
         <div class="top-profile">
             
-            <div class="profile-picture">Add profile image ...</div>
+            <div class="profile-picture">
+    
+    
+            Add profile image ...</div>
             
             <div class="profile-panel">
                 
@@ -66,7 +69,8 @@
                 <!-- Developer skills -->
                      <div class="devInfo">
 
-                        <ul class="skillist"><li ng-repeat="skill in skillist">{{skill.sk}}</li></ul>
+                        <ul class="skillist"><li ng-repeat="skl in skills">{{skl.skill}} <span class="removeSkill glyphicon glyphicon-remove-circle" ng-click="removeSkill($index)"></span> </li></ul>
+
                         <p class="addASkill" ng-show="!showInputSkill" ng-click ="showInputSkill = true" ng-mouseover="viewPlusIcon=true" ng-mouseleave="viewPlusIcon=false">Add skill <span ng-show="viewPlusIcon" class="glyphicon glyphicon-plus-sign"></span></p>
                         
                         <div class="dev-skills" ng-show="showInputSkill" ng-blur="showInputSkill = false">

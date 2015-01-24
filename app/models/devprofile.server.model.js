@@ -16,16 +16,15 @@ var DevprofileSchema = new Schema({
 		required: 'Please fill Devprofile name',
 		trim: true
 	},
-	profilepic: {
+	languages: {
 		type: String,
-		default: '',
-		trim: true
+		default: ''
 	},
 	location: {
 		type: String,
 		default: ''
 	},
-	languages: {
+	skills: {
 		type: Array,
 		default: ''
 	},

@@ -5,13 +5,16 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 	function($scope, $stateParams, $location, Authentication, Devprofiles) {
 		
 		$scope.authentication = Authentication;
-		$scope.skillist = [];
+		$scope.skills = [];
 
 		// Create new Devprofile
 		$scope.create = function() {
 			// Create new Devprofile object
 			var devprofile = new Devprofiles ({
-				name: this.name
+				name: this.name,
+				location: this.location,
+				languages: this.devLangs,
+				skills: this.skills
 			});
 
 			// Redirect after save
@@ -112,6 +115,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					map.setCenter(place.geometry.location);
 					map.setZoom(11);
 					$scope.devLocation = place.formatted_address;
+					$scope.location = $scope.devLocation;
 					$scope.showInputLocation = false;
 					$scope.mapLink = place.url; 
 					google.maps.event.trigger(map,'resize');
@@ -127,19 +131,23 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				}
 			};
 		};
+
 		$scope.skillGetKeyEsc = function(keyCode){
 			if (keyCode == '27'){
 				$scope.showInputSkill = false;
 			}
 		};
-		$scope.addSkill = function(devSkill, skillevel) {
-			var newSkill = {sk: devSkill, lvl: skillevel}
-			$scope.skillist.push(newSkill);
-			$scope.showInputSkill = false;
-			// tecla == 27 ? $scope.showInputSkill = false : "";
-			$scope.devSkill = "";
 
-			
+		$scope.addSkill = function(devSkill, skillevel) {
+			var newSkill = {skill: devSkill, level: skillevel}
+			$scope.skills.push(newSkill);
+			$scope.devSkill = "";			
+			$scope.showInputSkill = false;
+		};
+
+		$scope.removeSkill = function(index){
+		    $scope.skills.splice(index, 1);
+		    console.log($scope.skills);
 		}
 
 
