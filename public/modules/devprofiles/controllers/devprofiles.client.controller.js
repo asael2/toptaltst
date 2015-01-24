@@ -3,7 +3,9 @@
 // Devprofiles controller
 angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Devprofiles',
 	function($scope, $stateParams, $location, Authentication, Devprofiles) {
+		
 		$scope.authentication = Authentication;
+		$scope.skillist = [];
 
 		// Create new Devprofile
 		$scope.create = function() {
@@ -125,7 +127,20 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				}
 			};
 		};
+		$scope.skillGetKeyEsc = function(keyCode){
+			if (keyCode == '27'){
+				$scope.showInputSkill = false;
+			}
+		};
+		$scope.addSkill = function(devSkill, skillevel) {
+			var newSkill = {sk: devSkill, lvl: skillevel}
+			$scope.skillist.push(newSkill);
+			$scope.showInputSkill = false;
+			// tecla == 27 ? $scope.showInputSkill = false : "";
+			$scope.devSkill = "";
 
+			
+		}
 
 
 	}

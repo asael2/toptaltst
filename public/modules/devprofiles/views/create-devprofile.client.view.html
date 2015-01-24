@@ -52,22 +52,39 @@
                     
                 <!-- Developer location -->
                     <div class="devInfo">
-                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()">{{devLocation || 'Add location'}} </span>
+                        <p class="addLoc" ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()">{{devLocation || 'Add location'}} </p>
                         <input id="pac-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="showInputLocation=false" data-ng-model="location" class="controls" type="text" placeholder="Search Location">
                     </div>
                     
                 <!-- Developer languages -->
                     <div class="devInfo">
-                        <p ng-show="!showInputLang" ng-click="showInputLang = true">{{devLangs || 'Add languages'}} </p>
-                        <input id="languages-input" ng-show="showInputLang" ng-blur="showInputLang = false" data-ng-model="devLangs" type="text" placeholder="Add languages comma separated">
+                        <p class="addLang" ng-show="!showInputLang" ng-click="showInputLang = true">{{devLangs || 'Add languages'}}</p>
+                        <input id="languages-input" ng-show="showInputLang" ng-blur="showInputLang = false" data-ng-model="devLangs" type="text" placeholder="Add languages">
                         <span ng-show="showInputLang" ng-click="showInputLang = false" class="glyphicon glyphicon-ok-sign"></span>
                     </div>
-                    
+
                 <!-- Developer skills -->
-                   <!--  <p class="devInfo">
-                        <span ng-init="setLocation()" ng-show="!showInputLocation" ng-click="clickedLocation()" href="#">{{devSkill || 'Add skill'}} </span>
-                        <input id="skill-input" ng-show="showInputLocation" ng-keyup="getKeyLocation($event.keyCode)" ng-blur="blurLocation()"  data-ng-model="location" class="controls" type="text" placeholder="Search Location">
-                    </p> -->
+                     <div class="devInfo">
+
+                        <ul class="skillist"><li ng-repeat="skill in skillist">{{skill.sk}}</li></ul>
+                        <p class="addASkill" ng-show="!showInputSkill" ng-click ="showInputSkill = true" ng-mouseover="viewPlusIcon=true" ng-mouseleave="viewPlusIcon=false">Add skill <span ng-show="viewPlusIcon" class="glyphicon glyphicon-plus-sign"></span></p>
+                        
+                        <div class="dev-skills" ng-show="showInputSkill" ng-blur="showInputSkill = false">
+
+                            <input data-ng-model="devSkill" type="text" ng-keyup="skillGetKeyEsc($event.keyCode)" placeholder="Write skill">   
+                            <select ng-model="skillevel" ng-keyup="skillGetKeyEsc($event.keyCode)">
+                                <option value="" selected="">Select</option>
+                                <option value="soft">Soft</option>
+                                <option value="medium">Medium</option>
+                                <option value="strong">Strong</option>
+                            </select>
+                            <span ng-show="devSkill" ng-click="addSkill(devSkill, skillevel, $event.keyCode)" class="glyphicon glyphicon-ok-sign"></span>
+                        
+                        </div>
+                      
+                        
+                    
+                    </div>
 
                 </div>
                 

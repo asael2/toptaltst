@@ -167,7 +167,7 @@ header.navbar{
 				font-size: 3em;
 				font-family: 'Roboto', sans-serif;
 				font-weight: 100;
-				margin-top: 15px;
+				margin: 15px 0 0;
 				text-transform: capitalize;
 			}
 			.profile-info p a{
@@ -176,6 +176,24 @@ header.navbar{
 			}
 			.profile-info p:nth-child(2){
 				margin-bottom: 0;
+			}
+			
+			.addSkill, .addLang, .addLoc{
+				font-weight: bold;
+				cursor: pointer;
+				text-transform: capitalize;
+				margin-bottom: 0;
+			}
+
+			.profile-info .addASkill{
+				width: 85px;
+				padding: 4px;
+				cursor: pointer;
+				font-weight: bold;
+			}
+			.profile-info .addASkill:hover{
+				padding: 3px;
+				border: 1px solid #B8B8B8;
 			}
 
 		.profile-actions{
@@ -297,7 +315,6 @@ header.navbar{
 		font-size: 0.7em;
 		margin-top: 15px;
 	}
-
 
 .top-skills-toptal {
 	font-family: "Roboto", sans-serif;
@@ -446,13 +463,61 @@ footer  {
 	}
 
 	.devInfo input{
-		width: 90%;
-		margin: 2px
+		width: 50%;
+		margin: 2px 0;
 		background: white;
 		border: 1px solid #C0C0C0;
+
 	}
-
-
+	.devInfo span.glyphicon.glyphicon-ok-sign{
+		color: gray;
+		right: 25px;
+		top: 2px;
+	}
+	.dev-skills {
+		position: relative;
+	}
+		.dev-skills input, .dev-skills input:active, .ng-valid.ng-dirty{
+			border: 1px solid #C0C0C0;
+		}
+		
+		.dev-skills select{
+			position: absolute;
+			right: 230px;
+			top: 4px;
+			border:0px solid gray;
+		}
+		.dev-skills span.glyphicon.glyphicon-ok-sign{
+			position: absolute;
+			top: 7px;
+			right: 210px;
+		}
+		.skillist{
+			padding: 0;
+			margin: 0;
+		}
+		.skillist li{
+			list-style: none;
+			display: inline-block;
+			background: #AAAAAA;
+			color: white;
+			margin: 13px 6px 3px 0;
+			border-radius: 2px;
+			padding: 7px 8px;
+			text-transform: uppercase;
+			font-size: 0.9em;
+			letter-spacing: 1px;
+			line-height: 0.9em;
+		}
+		.skillist li:nth-child(1), .skillist li:nth-child(2){
+			background: #000000;
+		}
+		.skillist li:nth-child(3){
+			background: #676767;
+		}
+		.skillist li:nth-child(4){
+			background: #AAAAAA;
+		}
 
 #createProfile > div:nth-child(2) > div:nth-child(7) > div{
 	position: relative;
