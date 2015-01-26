@@ -123,7 +123,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					    animation: google.maps.Animation.DROP,
 					    map: map
 					});
-					map.setZoom(11);
+					map.setZoom(12);
 					google.maps.event.trigger(map,'resize');
 					map.panTo(ubication);
 					
@@ -138,7 +138,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 
 		$scope.setLanguages = function(){
 			$scope.showInputLang = true;
-			$scope.getKeyName = function(keyCode){
+			$scope.getKeyLang = function(keyCode){
 				if (keyCode == '13'){
 					$scope.showInputLang = false;
 				}

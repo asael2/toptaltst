@@ -43,15 +43,19 @@
                     
                 <!-- Developer languages -->
                     <div class="devInfo">
-                        <p class="addLang" ng-show="!showInputLang" ng-click="showInputLang = true">{{devLangs || 'Add languages'}}</p>
-                        <input id="languages-input" ng-show="showInputLang" ng-blur="showInputLang = false" data-ng-model="devLangs" type="text" placeholder="Add languages">
+                        <p class="addLang" ng-show="!showInputLang" ng-click="setLanguages()">{{devLangs || 'Add languages'}}</p>
+                        <input id="languages-input" ng-show="showInputLang" ng-keyup="getKeyLang($event.keyCode)" ng-blur="showInputLang = false" data-ng-model="devLangs" type="text" placeholder="Add languages">
                         <span ng-show="showInputLang" ng-click="showInputLang = false" class="glyphicon glyphicon-ok-sign"></span>
                     </div>
 
                 <!-- Developer skills -->
                     <div class="devInfo">
 
-                        <ul class="skillist"><li ng-repeat="skl in skills">{{skl.skill}} <span class="removeSkill glyphicon glyphicon-remove-circle" ng-click="removeSkill($index)"></span> </li></ul>
+                        <ul class="skillist">
+                            <li ng-repeat="skl in skills" ng-init="showRemove=false" ng-mouseover="showRemove=true" ng-mouseleave="showRemove=false">{{skl.skill}} 
+                                <span class="removeSkill glyphicon glyphicon-remove-circle" ng-click="removeSkill($index)" ng-show="showRemove"></span> 
+                            </li>
+                        </ul>
 
                         <p class="addASkill" ng-show="!showInputSkill" ng-click ="showInputSkill = true" ng-mouseover="viewPlusIcon=true" ng-mouseleave="viewPlusIcon=false">Add skill <span ng-show="viewPlusIcon" class="glyphicon glyphicon-plus-sign"></span></p>
                         

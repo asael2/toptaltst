@@ -3,7 +3,8 @@ body {
 }
 a, a:hover{
 	text-decoration: none;
-	/*color: white;*/
+	color: white;
+	cursor: pointer;
 }
 .content-width{
 	max-width: 960px;
@@ -63,6 +64,9 @@ a, a:hover{
 	font-weight: bold;
 	font-family: "arial", sans-serif;
 	margin: 10px;
+}
+.rounded-btn:hover{
+	color: gray;
 }
 
 header.navbar{
@@ -190,7 +194,7 @@ header.navbar{
 		margin-left: 30px;
 	}
 		.profile-info{
-			width: 410px;
+			width: 420px;
 			float:left;
 		}
 			.profile-info h3{
@@ -218,6 +222,7 @@ header.navbar{
 			.profile-info .addASkill{
 				width: 85px;
 				padding: 4px;
+				padding-left: 0;
 				cursor: pointer;
 				font-weight: bold;
 			}
@@ -509,6 +514,7 @@ footer  {
 	}
 		.dev-skills input, .dev-skills input:active, .ng-valid.ng-dirty{
 			border: 1px solid #C0C0C0;
+			padding-left: 5px;
 		}
 		
 		.dev-skills select{
@@ -520,7 +526,7 @@ footer  {
 		.dev-skills span.glyphicon.glyphicon-ok-sign{
 			position: absolute;
 			top: 7px;
-			right: 210px;
+			right: 213px;
 		}
 		.skillist{
 			padding: 0;
@@ -533,11 +539,11 @@ footer  {
 			color: white;
 			margin: 13px 6px 3px 0;
 			border-radius: 2px;
-			padding: 7px 8px;
+			padding: 6px 8px;
 			text-transform: uppercase;
 			font-size: 0.9em;
 			letter-spacing: 1px;
-			line-height: 0.9em;
+			cursor: default;
 		}
 		.skillist li:nth-child(1), .skillist li:nth-child(2){
 			background: #000000;
