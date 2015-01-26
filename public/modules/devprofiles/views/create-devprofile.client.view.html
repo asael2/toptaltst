@@ -4,8 +4,7 @@
 
         <div class="top-profile">
             
-            <div class="profile-picture">      
-
+            <div class="profile-picture">
                 <div class="profile-picture-widget">
                     <uploadcare-widget
                         ng-model="object.image.info.uuid"
@@ -22,8 +21,7 @@
                         on-widget-ready="onUCWidgetReady(widget)"
                         value="{{ object.image.info.cdnUrl }}"/>
                 </div>
-                <img ng-src="{{profileImg}}" class="profileImg" alt="" height="240" width="240">
-            
+                <img ng-src="{{profileImg}}" class="profileImg" alt="" height="240" width="240"> 
             </div>
             
             <div class="profile-panel">
@@ -51,7 +49,7 @@
                     </div>
 
                 <!-- Developer skills -->
-                     <div class="devInfo">
+                    <div class="devInfo">
 
                         <ul class="skillist"><li ng-repeat="skl in skills">{{skl.skill}} <span class="removeSkill glyphicon glyphicon-remove-circle" ng-click="removeSkill($index)"></span> </li></ul>
 
@@ -69,9 +67,6 @@
                             <span ng-show="devSkill" ng-click="addSkill(devSkill, skillevel, $event.keyCode)" class="glyphicon glyphicon-ok-sign"></span>
                         
                         </div>
-                      
-                        
-                    
                     </div>
 
                 </div>
