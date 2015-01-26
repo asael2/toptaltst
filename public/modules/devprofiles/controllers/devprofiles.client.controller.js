@@ -108,20 +108,30 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					navigationControl: false,
 					disableDefaultUI: true,
 	                // disableDoubleClickZoom:true,
-	                draggable: false,
+	                draggable: true,
 	                streetViewControl:false,
 	                mapTypeId:google.maps.MapTypeId.TERRAIN
 				};
 				var map = new google.maps.Map(document.getElementById("map-canvas"), initialOpts);
+
 				google.maps.event.addListener(autocomplete, 'place_changed', function() {	
 					var place = autocomplete.getPlace();
-					map.setCenter(place.geometry.location);
+					var ubication = place.geometry.location;
+					// map.setCenter(ubication);
+					var marker = new google.maps.Marker({
+					    position: place.geometry.location,
+					    animation: google.maps.Animation.DROP,
+					    map: map
+					});
 					map.setZoom(11);
+					google.maps.event.trigger(map,'resize');
+					map.panTo(ubication);
+					
 					$scope.devLocation = place.formatted_address;
 					$scope.location = $scope.devLocation;
 					$scope.showInputLocation = false;
 					$scope.mapLink = place.url; 
-					google.maps.event.trigger(map,'resize');
+					
 				});
 			}
 		};

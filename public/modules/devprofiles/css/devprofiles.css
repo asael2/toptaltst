@@ -571,6 +571,7 @@ map#map-canvas{
 	top: 128px;
 	vertical-align: middle;
 	text-align: left;
+	text-transform: capitalize;
 	padding: 10px 20px;
 	color: white;
 	background: url(../img/linkorner.png)rgba(0, 0, 0, 0.8) no-repeat bottom right;
