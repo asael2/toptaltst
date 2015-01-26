@@ -15,11 +15,13 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				name: this.name,
 				location: this.location,
 				languages: this.devLangs,
-				skills: this.skills
+				skills: this.skills,
+				profilePic: this.profileImg
 			});
 
 			// Redirect after save
 			devprofile.$save(function(response) {
+				// $location.path('devprofiles/' + response._id);
 				$location.path('devprofiles/' + response._id);
 
 				// Clear form fields

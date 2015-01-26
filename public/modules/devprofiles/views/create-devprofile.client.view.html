@@ -21,7 +21,7 @@
                         on-widget-ready="onUCWidgetReady(widget)"
                         value="{{ object.image.info.cdnUrl }}"/>
                 </div>
-                <img ng-src="{{profileImg}}" class="profileImg" alt="" height="240" width="240"> 
+                <img ng-src="{{profileImg}}" ng-model="profileImg" class="profileImg" alt="" height="240" width="240"> 
             </div>
             
             <div class="profile-panel">

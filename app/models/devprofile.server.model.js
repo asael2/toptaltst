@@ -24,6 +24,10 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	profilePic: {
+		type: String,
+		default: ''
+	},
 	skills: {
 		type: Array,
 		default: ''
