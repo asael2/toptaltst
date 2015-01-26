@@ -24,6 +24,10 @@ angular.module('devprofiles').config(['$stateProvider',
 		state('editDevprofile', {
 			url: '/devprofiles/:devprofileId/edit',
 			templateUrl: 'modules/devprofiles/views/edit-devprofile.client.view.html'
+		}).
+		state('uploadImg', {
+			url: '/devprofiles/uploads',
+			templateUrl: ''
 		});
 	}
 ]);

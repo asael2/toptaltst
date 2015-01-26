@@ -1,12 +1,12 @@
 'use strict';
 
 // Devprofiles controller
-angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Devprofiles',
-	function($scope, $stateParams, $location, Authentication, Devprofiles) {
+angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$stateParams', '$http', '$location', 'Authentication', '$upload', 'Devprofiles', 
+	function($scope, $stateParams, $location, Authentication, $upload, Devprofiles, $http) {
 		
 		$scope.authentication = Authentication;
 		$scope.skills = [];
-
+		$scope.profileBg= "https://www.google.com/images/srpr/logo4w.png";
 		// Create new Devprofile
 		$scope.create = function() {
 			// Create new Devprofile object
@@ -14,7 +14,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				name: this.name,
 				location: this.location,
 				languages: this.devLangs,
-				skills: this.skills
+				skills: this.skills,
 			});
 
 			// Redirect after save
@@ -148,9 +148,21 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		$scope.removeSkill = function(index){
 		    $scope.skills.splice(index, 1);
 		    console.log($scope.skills);
-		}
+		};
+
+		$scope.onUCUploadComplete = function(image){
+			$scope.profileImg = image.cdnUrl;
+			$scope.$apply();
+		};
+			
+}]);
 
 
-	}
-]);
+
+
+
+
+
+
+
 

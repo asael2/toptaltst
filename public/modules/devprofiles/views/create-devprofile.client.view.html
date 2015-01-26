@@ -2,45 +2,32 @@
   
     <section data-ng-controller="DevprofilesController" id="createProfile" class="content-width" > 
 
-<!-- <div class="col-md-12">
-
-    <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-
-    <fieldset>
-    <div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
-
-    <label class="control-label" for="title">Title</label>
-    <div class="controls">
-    <input name="title" type="text" data-ng-model="name" id="title" class="form-control" placeholder="Title" required>
-    </div>
-
-    </div>
-
-    <div class="form-group">
-
-    <label class="control-label" for="content">Content</label>
-    <div class="controls">
-    <textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-    </div>
-
-    </div>
-
-    <div class="form-group">
-    <input type="submit" class="btn btn-default">
-    </div>
-
-
-    </fieldset>
-
-    </form>
-</div> -->
-
         <div class="top-profile">
             
-            <div class="profile-picture">
-    
-    
-            Add profile image ...</div>
+            <div class="profile-picture">      
+            <!-- <div class="profile-picture" ng-style="{'background-image':getPictuere}">            -->
+                <!-- <span>Add profile image ... </span> -->
+                <div class="profile-picture-widget">
+                    <uploadcare-widget
+                        ng-model="object.image.info.uuid"
+                        data-public-key="c48b5084038f60f2dd0d"
+                        data-locale="en"
+                        data-tabs="file url"
+                        data-images-only="true"
+                        data-path-value="false"
+                        data-preview-step="true"
+                        data-clearable="true"
+                        data-multiple="false"
+                        data-crop="240:240"
+                        on-upload-complete="onUCUploadComplete(info)"
+                        on-widget-ready="onUCWidgetReady(widget)"
+                        value="{{ object.image.info.cdnUrl }}"
+                    />
+
+                </div>
+                <img src="{{profileImg}}" class="profileImg" alt="" height="240" width="240">
+            
+            </div>
             
             <div class="profile-panel">
                 
@@ -69,7 +56,7 @@
                 <!-- Developer skills -->
                      <div class="devInfo">
 
-                        <ul class="skillist"><li ng-repeat="skl in skills">{{skl.skill}} <span class="removeSkill glyphicon glyphicon-remove-circle" ng-click="removeSkill($index)"></span> </li></ul>
+                        <ul class="skillist"><li ng-repeat="skl in skills">{{skl.skill}} <span class="removeSkill glyphicon glyphicon-remove-sign" ng-click="removeSkill($index)"></span> </li></ul>
 
                         <p class="addASkill" ng-show="!showInputSkill" ng-click ="showInputSkill = true" ng-mouseover="viewPlusIcon=true" ng-mouseleave="viewPlusIcon=false">Add skill <span ng-show="viewPlusIcon" class="glyphicon glyphicon-plus-sign"></span></p>
                         

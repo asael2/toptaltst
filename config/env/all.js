@@ -26,7 +26,11 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/ngmap/build/scripts/ng-map.min.js'
+				'public/lib/ngmap/build/scripts/ng-map.min.js',
+				'public/lib/ng-flow/dist/ng-flow-standalone.min.js',
+				'public/lib/ng-file-upload/angular-file-upload-shim.min.js',
+				'public/lib/ng-file-upload/angular-file-upload.min.js',
+				'public/lib/angular-uploadcare/angular-uploadcare.js'
 			]
 		},
 		css: [
