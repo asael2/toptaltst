@@ -142,21 +142,54 @@ header.navbar{
 	height: 240px;
 	background: #E9E9E9;
 	margin-top: 40px;
+	position: relative;
 }
 	.profile-picture{
-		display: block;
+		position: absolute;
+		/*float: left;*/
 		width: 240px;
 		max-width: 240px;
 		height: 240px;
-		background:#C0C0C0;
-		float: left;
+		/*display: block;
 		text-align: center;
 		vertical-align: middle;
-		line-height: 240px;  
+		line-height: 240px;  */
+		background: black;
+	}
+	.profile-picture-widget{
+		height: 240px;
+		z-index: 2;
+		position: absolute;
+	}
+		.uploadcare-widget-button.uploadcare-widget-button-open {
+			background:none;
+			border: 3px solid orange;
+			color: black;
+			line-height: 240px;
+			width: 240px;
+			height: 240px;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 0;
+			
+			
+		}
+	.profile-picture .profileImg{
+		background: red;
+		z-index: 1;
+		position: absolute;
+		margin:0;
+		padding: 0; 
+	}
+	.uploadcare-widget-status-loaded .uploadcare-widget-text{
+		display: none !important;
+		border: 1px solid purple;
 	}
 	.profile-panel{
 		max-width: 690px;
-		float: left;
+		float: right;
 		margin-left: 30px;
 	}
 		.profile-info{
@@ -550,6 +583,12 @@ map#map-canvas{
 
 
 
+
+
+
+
+
+
 /* Landscape phones and down 
 @media (max-width: 480px) { 
 	
@@ -565,4 +604,6 @@ map#map-canvas{
 		background: green;
 	}	 }
 */
+
+
 

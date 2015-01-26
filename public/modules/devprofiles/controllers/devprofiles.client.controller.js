@@ -6,6 +6,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		
 		$scope.authentication = Authentication;
 		$scope.skills = [];
+		$scope.profileBg= "";
 
 		// Create new Devprofile
 		$scope.create = function() {
@@ -150,6 +151,10 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		    console.log($scope.skills);
 		}
 
+		$scope.onUCUploadComplete = function(image){
+			$scope.profileImg = image.cdnUrl;
+			$scope.$apply();
+		};
 
 	}
 ]);
