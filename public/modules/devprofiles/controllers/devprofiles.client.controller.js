@@ -6,7 +6,6 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		
 		$scope.authentication = Authentication;
 		$scope.skills = [];
-		$scope.profileBg= "";
 
 		// Create new Devprofile
 		$scope.create = function() {
@@ -16,7 +15,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				location: this.location,
 				languages: this.devLangs,
 				skills: this.skills,
-				profilePic: this.profileImg
+				profilePic: this.profileImg,
+
 			});
 
 			// Redirect after save
@@ -161,11 +161,15 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		$scope.removeSkill = function(index){
 		    $scope.skills.splice(index, 1);
 		    console.log($scope.skills);
-		}
+		};
 
 		$scope.onUCUploadComplete = function(image){
 			$scope.profileImg = image.cdnUrl;
 			$scope.$apply();
+		};
+
+		$scope.portfolio = function(){
+			
 		};
 
 	}
