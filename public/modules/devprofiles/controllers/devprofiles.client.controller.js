@@ -19,15 +19,16 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		};
 		$scope.experience = {
 			options: [
-				{ skill: '', time: '' },
-				{ skill: '', time: '' },
-				{ skill: '', time: '' },
-				{ skill: '', time: '' },
-				{ skill: '', time: '' },
-				{ skill: '', time: '' },
-				{ skill: '', time: '' }
+				{ skill: '', period: '' },
+				{ skill: '', period: '' },
+				{ skill: '', period: '' },
+				{ skill: '', period: '' },
+				{ skill: '', period: '' },
+				{ skill: '', period: '' },
+				{ skill: '', period: '' }
 			]
 		};
+		
 
 		// Create new Devprofile
 		$scope.create = function() {
@@ -41,7 +42,10 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				portfolio: this.portfolio,
 				amazing:this.amazing,
 				experience: this.experience,
-				note: this.note
+				inclients: this.inclients,
+				note: this.note,
+				available: this.available.label,
+				mynote: this.mynote,
 			});
 
 			// Redirect after save
@@ -116,6 +120,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.clickedLocation = function(){
 				$scope.showInputLocation = true;
 				$scope.showMapLocation = true;
+				$scope.showStreetviewImg = true;
 				$scope.devLocation = "";
 
 				// Google Autocomplete
@@ -143,7 +148,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					var place = autocomplete.getPlace();
 					var ubication = place.geometry.location;
 					// map.setCenter(ubication);
-					
+					//location for streetview
 					console.log(ubication.k);
 					console.log(ubication.D);
 					$scope.loc_k = ubication.k;
@@ -161,6 +166,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					$scope.devLocation = place.formatted_address;
 					$scope.location = $scope.devLocation;
 					$scope.showInputLocation = false;
+
 					$scope.mapLink = place.url; 
 					
 				});
@@ -318,6 +324,39 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				$scope.showNoteTxt = false;
 				$scope.noteClass = "black-bg";
 			}
+		};
+
+		$scope.setMyNote = function(){
+			$scope.showMyNoteTxt = false;
+			$scope.showMyNoteLink = false;
+			$scope.showMyNoteInput = true;
+			$scope.mynoteClass = "black-bg";
+			
+			$scope.saveMyNote =function(){
+				if(!$scope.mynote){
+					$scope.showMyNoteLink = true;
+					$scope.mynoteClass = "white-bg";
+				}else{
+					$scope.showMyNoteTxt = true;
+					$scope.showMyNoteInput = false;
+					$scope.mynoteClass = "white-bg";
+				}
+			}
+
+			$scope.editMyNote =function(){
+				$scope.showMyNoteInput = true;
+				$scope.showMyNoteTxt = false;
+				$scope.mynoteClass = "black-bg";
+			}
+		};
+
+		$scope.availability = function(){
+			$scope.avOptions = [
+				{ label: 'Hourly', value: 1 },
+				{ label: 'Half-time', value: 2 },
+				{ label: 'Full-time', value: 3 }
+			];
+			$scope.available = $scope.avOptions[1];
 		};
 
 	}

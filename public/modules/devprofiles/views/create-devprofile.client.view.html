@@ -2,8 +2,7 @@
   
     <section data-ng-controller="DevprofilesController" id="createProfile" class="content-width" > 
 
-        <div class="top-profile">
-            
+        <div class="top-profile"> 
             <div class="profile-picture">
                 <div class="profile-picture-widget">
                     <uploadcare-widget
@@ -79,11 +78,10 @@
                     <p><a class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
                 </div>
             </div>
-
         </div>
 
         <div class="flex-container">
-      
+            <!-- Portfolio -->
             <div class="flex-item portfolio" ng-init="showPortfoliosInput=false; showPortfoliosLink=true; showPortfolioList=false" ng-class="portfolioClass">
                 <h4>Portfolio</h4>
                 <a class="squared-link" ng-show="showPortfoliosLink" ng-click="setPortfolio()">Add content ...</a>
@@ -100,7 +98,7 @@
                     </ul>
                 </div>
             </div>
-
+            <!-- Experience -->
             <div class="flex-item experience" ng-init="showExperiencesInput=false; showExperiencesLink=true; showExperienceList=false" ng-class="experienceClass">
                 <h4>Experience</h4>
                 <a class="squared-link" ng-show="showExperiencesLink" ng-click="setExperience()">Add content ...</a>
@@ -117,16 +115,18 @@
                     </ul>
                 </div>
             </div>
-
+            <!-- Sample code and algorithms -->
             <div class="flex-item long-title">
                 <h4>Sample code and algorithms</h4>
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
-
-            <div class="flex-item double-item">
+            <!-- Availability -->
+            <div class="flex-item double-item" ng-init="viewSelect = false; availability()">
+               
                 <div class="availability">  
                     <h4>Availability</h4>
-                    <div class="item-content"><a href="#">Full-time</a></div>
+                    <select ng-show="viewSelect" ng-model="available" ng-change="viewSelect = false" ng-options="opt as opt.label for opt in avOptions"> </select>
+                    <span ng-click="viewSelect = true" ng-show="!viewSelect">{{available.label || 'Select' }}</span>
                 </div>
 
                 <div class="environment">
@@ -134,7 +134,7 @@
                     <div class="item-content"><a href="#">Add content ...</a></div>
                 </div>
             </div>
-
+            <!-- The most amazing -->
             <div class="flex-item amazing comas-bg" ng-class="amazingClass" ng-init="showAmazingLink=true; showAmazingInput=false; showAmazingTxt=false">
                 <h4>The most amazing ...</h4>
                 <a class="squared-link" ng-show="showAmazingLink" ng-click="setAmazing()">Add content ...</a>
@@ -142,7 +142,7 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showAmazingInput" ng-click="saveAmazing()"></span>
                 <p class="txt-comillas" ng-show="showAmazingTxt" ng-click="editAmazing()">{{amazing}}</p>
             </div>
-
+            <!-- In clients -->
             <div class="flex-item inclients comas-bg" ng-class="inclientsClass" ng-init="showInclientsLink=true; showInclientsInput=false; showInclientsTxt=false">
                 <h4>In clients I look for ...</h4>
                 <a class="squared-link" ng-show="showInclientsLink" ng-click="setInclients()">Add content ...</a>
@@ -150,7 +150,7 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showInclientsInput" ng-click="saveInclients()"></span>
                 <p class="txt-comillas" ng-show="showInclientsTxt" ng-click="editInclients()">{{inclients}}</p>
             </div>
-
+            <!-- Location -->
             <div class="flex-item">
                 <h4>Location</h4>
                 <div class="item-content">
@@ -161,6 +161,7 @@
 
                 <a class="squared-link" ng-href="#">Add content ...</a></div>
             </div>
+            <!-- Note -->
             <div class="flex-item note comas-bg" ng-class="noteClass" ng-init="showNoteLink=true; showNoteInput=false; showNoteTxt=false">
                 <h4>Note</h4>
                 <a class="squared-link" ng-show="showNoteLink" ng-click="setNote()">Add content ...</a>
@@ -168,13 +169,16 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showNoteInput" ng-click="saveNote()"></span>
                 <p class="txt-comillas" ng-show="showNoteTxt" ng-click="editNote()">{{note}}</p>
             </div>
-
         </div>
         
         <p class="separator-paragraph"> Let me introduce myself ...</p>
 
         <div class="flex-container container-b">
+            
             <div class="flex-item">
+             <div class="profile-picture-widget">
+                    <input type="hidden" name="picture" role="uploadcare-uploader" />
+                </div>
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
 
@@ -182,18 +186,26 @@
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
 
-            <div class="flex-item">
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+            <!-- my note -->
+            <div class="flex-item mynote comas-bg" ng-class="mynoteClass" ng-init="showMyNoteLink=true; showMyNoteInput=false; showMyNoteTxt=false">
+                <h4>The most amazing</h4>
+                <a class="squared-link" ng-show="showMyNoteLink" ng-click="setMyNote()">Add content ...</a>
+                <textarea rows="7" class="txtbox" ng-show="showMyNoteInput" ng-model="mynote" placeholder="Write a note ..."></textarea>
+                <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showMyNoteInput" ng-click="saveMyNote()"></span>
+                <p class="txt-comillas" ng-show="showMyNoteTxt" ng-click="editMyNote()">{{mynote}}</p>
             </div>
 
+            <!-- streetview image -->
             <div class="flex-item locationpicture">
-            <!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{loc_k}},{{loc_D}}&fov=90&heading=235&pitch=-0.7"> -->
-
+                <div ng-show="showStreetviewImg">
                     <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}} <span>(see map)</span></a>
                     <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{devLocation}}&fov=90&heading=235&pitch=0.7">
-                    
-                    <a class="squared-link" href="#">Add content ...</a>
+                    <!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{loc_k}},{{loc_D}}&fov=90&heading=235&pitch=-0.7"> -->
+                </div>
+
+                <a class="squared-link" href="#" ng-show="!showStreetviewImg">Add content ...</a>
             </div>
+
         </div>
         
         <div class="separator-block"> Important! Please fill out the Q&amp;A form 

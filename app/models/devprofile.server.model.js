@@ -36,6 +36,14 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	mynote: {
+		type: String,
+		default: ''
+	},
+	available: {
+		type: String,
+		default: ''
+	},
 	skills: {
 		type: Array,
 		default: ''
