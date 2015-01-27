@@ -186,8 +186,13 @@
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
 
-            <div class="flex-item">
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+            <div class="flex-item locationpicture">
+            <!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{loc_k}},{{loc_D}}&fov=90&heading=235&pitch=-0.7"> -->
+
+                    <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}} <span>(see map)</span></a>
+                    <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{devLocation}}&fov=90&heading=235&pitch=0.7">
+                    
+                    <a class="squared-link" href="#">Add content ...</a>
             </div>
         </div>
         

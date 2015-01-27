@@ -143,6 +143,12 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					var place = autocomplete.getPlace();
 					var ubication = place.geometry.location;
 					// map.setCenter(ubication);
+					
+					console.log(ubication.k);
+					console.log(ubication.D);
+					$scope.loc_k = ubication.k;
+					$scope.loc_D = ubication.D;
+
 					var marker = new google.maps.Marker({
 					    position: place.geometry.location,
 					    animation: google.maps.Animation.DROP,

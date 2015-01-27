@@ -593,7 +593,7 @@ map#map-canvas{
 	top: -48px;
 }
 
-.map-link, .map-link:hover, .map-link:active {
+.map-link, .map-link:hover, .map-link:active, .map-link:visited {
 	display: block;
 	height: 65px;
 	width: 100%;
@@ -661,6 +661,21 @@ textarea.txtbox{
 	color: #575757;
 	font-size: 1.1em;
 }
+
+
+.locationpicture{
+	position: relative;
+}
+
+.locationpicture .map-link{
+	top: 175px;
+	background: rgba(0, 0, 0, 0.8) no-repeat bottom right;
+}
+
+.locationpicture .map-link span{
+	font-size: 0.8em
+}
+
 
 /* Landscape phones and down 
 @media (max-width: 480px) { 
