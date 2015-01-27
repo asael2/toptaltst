@@ -32,12 +32,16 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	note: {
+		type: String,
+		default: ''
+	},
 	skills: {
 		type: Array,
 		default: ''
 	},
 	inclients: {
-		type: Array,
+		type: String,
 		default: ''
 	},
 	portfolio: {

@@ -159,12 +159,15 @@
                         <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}}</a>
                     </div>
 
-                <a class="squared-link" href="#">Add content ...</a></div>
+                <a class="squared-link" ng-href="#">Add content ...</a></div>
             </div>
 
-            <div class="flex-item comas-bg">
+            <div class="flex-item note comas-bg" ng-class="noteClass" ng-init="showNoteLink=true; showNoteInput=false; showNoteTxt=false">
                 <h4>Note</h4>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+                <a class="squared-link" ng-show="showNoteLink" ng-click="setNote()">Add content ...</a>
+                <textarea rows="7" class="txtbox" ng-show="showNoteInput" ng-model="note" placeholder="Write a note ..."></textarea>
+                <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showNoteInput" ng-click="saveNote()"></span>
+                <p class="txt-comillas" ng-show="showNoteTxt" ng-click="editNote()">{{note}}</p>
             </div>
 
         </div>

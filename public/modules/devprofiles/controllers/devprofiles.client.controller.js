@@ -40,7 +40,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				profilePic: this.profileImg,
 				portfolio: this.portfolio,
 				amazing:this.amazing,
-				experience: this.experience
+				experience: this.experience,
+				note: this.note
 			});
 
 			// Redirect after save
@@ -286,6 +287,30 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				$scope.showInclientsInput = true;
 				$scope.showInclientsTxt = false;
 				$scope.inclientsClass = "black-bg";
+			}
+		};
+
+		$scope.setNote = function(){
+			$scope.showNoteTxt = false;
+			$scope.showNoteLink = false;
+			$scope.showNoteInput = true;
+			$scope.noteClass = "black-bg";
+			
+			$scope.saveNote =function(){
+				if(!$scope.note){
+					$scope.showNoteLink = true;
+					$scope.noteClass = "white-bg";
+				}else{
+					$scope.showNoteTxt = true;
+					$scope.showNoteInput = false;
+					$scope.noteClass = "white-bg";
+				}
+			}
+
+			$scope.editNote =function(){
+				$scope.showNoteInput = true;
+				$scope.showNoteTxt = false;
+				$scope.noteClass = "black-bg";
 			}
 		};
 
