@@ -29,6 +29,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			]
 		};
 		$scope.onMeOneData = {image:'', tagline:''}
+		$scope.onMeTwoData = {image:'', tagline:''}
 		
 		// Create new Devprofile
 		$scope.create = function() {
@@ -47,7 +48,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				available: this.available.label,
 				environment:this.environment,
 				mynote: this.mynote,
-				onMeOneData:this.onMeOneData
+				onMeOneData:this.onMeOneData,
+				onMeTwoData:this.onMeTwoData
 			});
 
 			// Redirect after save
@@ -209,7 +211,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		};
 
 		$scope.onMeOne = function(image){
-			// console.log("one: "+image.cdnUrl);
+			console.log("one: "+image.cdnUrl);
 			$scope.showOnMeOneLink=false;
 			$scope.showOnMeOneImg=true; 
 			$scope.showOnMeOneInput=true; 
@@ -233,7 +235,31 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			};	
 		};
 
-		
+		$scope.onMeTwo = function(image){
+			console.log("two: "+image.cdnUrl);
+			$scope.showOnMeTwoLink=false;
+			$scope.showOnMeTwoImg=true; 
+			$scope.showOnMeTwoInput=true; 
+			$scope.myselfImg2 = image.cdnUrl;
+			$scope.$apply();
+			$scope.saveOnMeTwo = function(){
+				$scope.showOnMeTwoInput = false;
+				$scope.showOnMeTwoLegend = true; 
+				$scope.onMeTwoData.image = $scope.myselfImg2;
+				$scope.onMeTwoData.tagline = $scope.onMeTwoLegend;
+				console.log($scope.onMeTwoData)		;		
+			};
+			$scope.getKeyOnMe2 = function(keyCode){
+				if (keyCode == '13'){
+					$scope.saveOnMeTwo();
+				}
+			};
+			$scope.editOnMeTwo = function(){
+				$scope.showOnMeTwoInput=true;
+				$scope.showOnMeTwoLegend=false; 
+			};	
+		};
+
 
 		$scope.setPortfolio = function(){
 			$scope.showPortfoliosLink = false;

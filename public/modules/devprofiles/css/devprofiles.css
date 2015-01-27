@@ -684,14 +684,14 @@ textarea.txtbox-environment{
 }
 
 
-.onMeOne-picture{
+.onMeOne-picture, .onMeTwo-picture{
 	position: relative;
 }
-.onMeOne-picture-widget {
+ .onMeOne-picture-widget, .onMeTwo-picture-widget {
 	position: absolute;
 }
 
-.onMeOne-picture-legend-input{
+.onMeOne-picture-legend-input, .onMeTwo-picture-legend-input{
 	position: absolute;
 	bottom: 10px;
 	margin: auto;
@@ -701,14 +701,14 @@ textarea.txtbox-environment{
 	padding-right: 30px;
 }
 
-.onme1 span.glyphicon.glyphicon-ok-sign.saveIcon{
+.onme1 span.glyphicon.glyphicon-ok-sign.saveIcon, .onme2 span.glyphicon.glyphicon-ok-sign.saveIcon{
 	position: absolute;
 	top: 206px;
 	right: 0px;
 	z-index: 3;
 }
 
-.showOnMeOneLegend {
+.showOnMeOneLegend, .showOnMeTwoLegend {
 	color: white;
 	background: rgba(0, 0, 0, 0.8);
 	position: absolute;

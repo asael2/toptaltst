@@ -178,10 +178,8 @@
             
             <!-- On me 1 -->
             <div class="flex-item onme1" ng-init="showOnMeOneInput=false; showOnMeOneImg=false; showOnMeOneLink=false; showOnMeOneLegend=false;">
-               
 
-                <a class="squared-link" ng-show="showOnMeOneLink">Add content ...</a>
-                
+                <a class="squared-link" ng-show="showOnMeOneLink">Add content ...</a>                
                 <div class="onMeOne-picture">
                     
                     <div  class="onMeOne-picture-widget">
@@ -205,15 +203,41 @@
                     <input ng-show="showOnMeOneInput" ng-model="onMeOneLegend" ng-keyup="getKeyOnMe1($event.keyCode)" type="text" class="onMeOne-picture-legend-input" placeholder="Write a text for this image..."/>
                     
                     <p class="showOnMeOneLegend" ng-show="showOnMeOneLegend" ng-click="editOnMeOne()">{{onMeOneLegend}}</p>
-                    <img ng-show="showOnMeOneImg" ng-src="{{myselfImg1}}" class="onMeOne" alt="" height="240" width="240" > 
-                
+                    <img ng-show="showOnMeOneImg" ng-src="{{myselfImg1}}" class="onMeOne" alt="" height="240" width="240" >  
                 </div>
-
 
             </div>
 
-            <div class="flex-item">
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+             <!-- On me 2 -->
+            <div class="flex-item onme2" ng-init="showOnMeTwoInput=false; showOnMeTwoImg=false; showOnMeTwoLink=false; showOnMeTwoLegend=false;">
+
+                <a class="squared-link" ng-show="showOnMeTwoLink">Add content ...</a>                
+                <div class="onMeTwo-picture">
+                    
+                    <div  class="onMeTwo-picture-widget">
+                        <uploadcare-widget
+                            ng-model="object.image.info.uuidc"
+                            data-public-key="c48b5084038f60f2dd0d"
+                            data-locale="en"
+                            data-tabs="file url"
+                            data-images-only="true"
+                            data-path-value="false"
+                            data-preview-step="true"
+                            data-clearable="true"
+                            data-multiple="false"
+                            data-crop="240:240"
+                            on-upload-complete="onMeTwo(info)"
+                            on-widget-ready="onUCWidgetReady(widget)"
+                            value="{{ object.image.info.cdnUrl }}"/>
+                    </div>
+
+                    <span ng-show="showOnMeTwoInput" class="glyphicon glyphicon-ok-sign saveIcon" ng-click="saveOnMeTwo()"></span>
+                    <input ng-show="showOnMeTwoInput" ng-model="onMeTwoLegend" ng-keyup="getKeyOnMe2($event.keyCode)" type="text" class="onMeTwo-picture-legend-input" placeholder="Write a text for this image..."/>
+                    
+                    <p class="showOnMeTwoLegend" ng-show="showOnMeTwoLegend" ng-click="editOnMeTwo()">{{onMeTwoLegend}}</p>
+                    <img ng-show="showOnMeTwoImg" ng-src="{{myselfImg2}}" class="onMeTwo" alt="" height="240" width="240" >  
+                </div>
+
             </div>
 
             <!-- my note -->
