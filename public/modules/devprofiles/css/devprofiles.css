@@ -288,14 +288,14 @@ header.navbar{
 		}*/
 
 		.white-bg{
-			background: white;
-			color: black;
+			background-color: white;
+			color: #575757;
 		}
 		.black-bg{
-			background: black;
+			background-color: black;
 			color: white;
 		}
-			.black-bg input{
+			.black-bg input, .black-bg textarea{
 				color: black;
 			}
 
@@ -323,9 +323,13 @@ header.navbar{
 	.flex-item.long-title .squared-link{ 
 		margin-top: -19px;
 	}
-	.flex-item.comas-bg{
-		background: url(../img/comasbg.gif) no-repeat center 55px;
+	.comas-bg{
+		background: url(../img/comasbg.png) transparent no-repeat center 55px;
 	}
+	.comas-bg.black-bg{
+		background-color:black;
+	}
+
 	.flex-item.double-item{
 		/*background: red;*/
 	}
@@ -626,19 +630,42 @@ map#map-canvas{
 	float: left;
 }
 
-.portfolio-experience {
+.saveAmazing{
+	display: block;
+	text-align: left;
+	padding: 3px 12px;
+	cursor: pointer;
+	float: left;
+}
+
+.portfolio-portfolio {
 	margin: 0px 12px;
 	padding: 0;
 }
-.portfolio-experience li {
+.portfolio-portfolio li {
     background: url(../img/bullet.png) no-repeat left 5px;
     padding: 3px 20px;
     text-align: left;
     list-style: none;
     text-transform: capitalize;
 }
-.portfolio-experience li span{
+.portfolio-portfolio li span{
 	font-weight: bold;
+}
+
+textarea.txtbox{
+	width: 88%;
+	font-style: italic;
+	margin-top: 5px;
+	padding: 8px;
+}
+
+.txt-comillas{
+	padding: 20px;
+	text-align: left;
+	font-style: italic;
+	color: #575757;
+	font-size: 1.1em;
 }
 
 /* Landscape phones and down 

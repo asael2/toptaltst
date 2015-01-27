@@ -28,6 +28,10 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	amazing: {
+		type: String,
+		default: ''
+	},
 	skills: {
 		type: Array,
 		default: ''

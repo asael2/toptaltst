@@ -6,7 +6,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		
 		$scope.authentication = Authentication;
 		$scope.skills = [];
-		$scope.experience = {
+		$scope.portfolio = {
 			options: [
 				{ project: '', skills: '' },
 				{ project: '', skills: '' },
@@ -15,6 +15,17 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				{ project: '', skills: '' },
 				{ project: '', skills: '' },
 				{ project: '', skills: '' }
+			]
+		};
+		$scope.experience = {
+			options: [
+				{ skill: '', time: '' },
+				{ skill: '', time: '' },
+				{ skill: '', time: '' },
+				{ skill: '', time: '' },
+				{ skill: '', time: '' },
+				{ skill: '', time: '' },
+				{ skill: '', time: '' }
 			]
 		};
 
@@ -27,7 +38,9 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				languages: this.devLangs,
 				skills: this.skills,
 				profilePic: this.profileImg,
-				portfolio: this.experience
+				portfolio: this.portfolio,
+				amazing:this.amazing
+				// experience: this.experience
 			});
 
 			// Redirect after save
@@ -182,17 +195,48 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		$scope.setPortfolio = function(){
 			$scope.showPortfoliosLink = false;
 			$scope.showPortfoliosInput = true;
-			$scope.itemClass = "black-bg";
+			$scope.portfolioClass = "black-bg";
 
 			$scope.savePortfolio =function(){
-				$scope.showPortfoliosInput = false;
-				$scope.showExperience = true;
-				$scope.itemClass = "white-bg";
+				if($scope.portfolio.options[0].project == ""){
+					$scope.showPortfoliosLink = true; 
+					$scope.showPortfolioList = false;
+					$scope.portfolioClass = "white-bg";
+				} else {	
+					$scope.showPortfoliosInput = false;
+					$scope.showPortfolioList = true;
+					$scope.portfolioClass = "white-bg";
+				}
 			}
 
 			$scope.editPortfolio =function(){
 				$scope.showPortfoliosInput = true;
-				$scope.showExperience = false;
+				$scope.showPortfolioList = false;
+				$scope.portfolioClass = "black-bg";
+			}
+		};
+
+		$scope.setAmazing = function(){
+			$scope.showAmazingTxt = false;
+			$scope.showAmazingLink = false;
+			$scope.showAmazingInput = true;
+			$scope.amazingClass = "black-bg";
+			
+			$scope.saveAmazing =function(){
+				if(!$scope.amazing){
+					$scope.showAmazingLink = true;
+					$scope.amazingClass = "white-bg";
+				}else{
+					$scope.showAmazingTxt = true;
+					$scope.showAmazingInput = false;
+					$scope.amazingClass = "white-bg";
+				}
+			}
+
+			$scope.editAmazing =function(){
+				$scope.showAmazingInput = true;
+				$scope.showAmazingTxt = false;
+				$scope.amazingClass = "black-bg";
 			}
 		};
 

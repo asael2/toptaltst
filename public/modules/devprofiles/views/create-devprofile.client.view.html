@@ -60,7 +60,6 @@
                         <p class="addASkill" ng-show="!showInputSkill" ng-click ="showInputSkill = true" ng-mouseover="viewPlusIcon=true" ng-mouseleave="viewPlusIcon=false">Add skill <span ng-show="viewPlusIcon" class="glyphicon glyphicon-plus-sign"></span></p>
                         
                         <div class="dev-skills" ng-show="showInputSkill" ng-blur="showInputSkill = false">
-
                             <input data-ng-model="devSkill" type="text" ng-keyup="skillGetKeyEsc($event.keyCode)" placeholder="Write skill">   
                             <select ng-model="skillevel" ng-keyup="skillGetKeyEsc($event.keyCode)">
                                 <option value="" selected="">Select</option>
@@ -69,7 +68,6 @@
                                 <option value="strong">Strong</option>
                             </select>
                             <span ng-show="devSkill" ng-click="addSkill(devSkill, skillevel, $event.keyCode)" class="glyphicon glyphicon-ok-sign"></span>
-                        
                         </div>
                     </div>
 
@@ -85,34 +83,23 @@
         </div>
 
         <div class="flex-container">
-
-
-            
-            <div class="flex-item portfolio" ng-init="showPortfoliosInput=false; showPortfoliosLink=true; showExperience=false" ng-class="itemClass">
-                
+      
+            <div class="flex-item portfolio" ng-init="showPortfoliosInput=false; showPortfoliosLink=true; showPortfolioList=false" ng-class="portfolioClass">
                 <h4>Portfolio</h4>
-                
                 <a class="squared-link" ng-show="showPortfoliosLink" ng-click="setPortfolio()">Add content ...</a>
-                
-                <div class="item-content" ng-show="showPortfoliosInput" class="black-bg">        
-                    <div class="portfolios-line" ng-repeat="option in experience.options" >
-                        <input type="text" ng-model="option.project" ng-change="change()" placeholder="Project name"/>
-                        <input type="text" ng-model="option.skills" ng-change="change()" placeholder="Skills used"/>
+                <div class="item-content" ng-show="showPortfoliosInput" class="black-bg">
+                    <div class="portfolios-line" ng-repeat="option in portfolio.options" >
+                        <input type="text" ng-model="option.project" placeholder="Project name"/>
+                        <input type="text" ng-model="option.skills" placeholder="Skills used"/>
                     </div>
-                    <span class="glyphicon glyphicon-ok-sign savePortfolio" ng-click="savePortfolio()"></span>
+                    <span class="glyphicon glyphicon-ok-sign savePortfolio"  ng-click="savePortfolio()"></span>
                 </div>
-
-                <div class="item-content" ng-show="showExperience" class="white-bg">        
-                    
-                    <ul class="portfolio-experience" ng-repeat="option in experience.options" >
+                <div class="item-content" ng-show="showPortfolioList" class="white-bg">
+                    <ul class="portfolio-portfolio" ng-repeat="option in portfolio.options" >
                         <li ng-show="option.project.length" ng-click="editPortfolio()"><span>{{option.project}},</span> {{option.skills}}</li>
                     </ul>
-                    
-                    <!-- <span class="glyphicon glyphicon-plus-sign" ng-click="editPortfolio()"></span> -->
                 </div>
-
             </div>
-
 
             <div class="flex-item">
                 <h4>Experience</h4>
@@ -124,7 +111,7 @@
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
 
-            <div class="flex-item double-item"> 
+            <div class="flex-item double-item">
                 <div class="availability">  
                     <h4>Availability</h4>
                     <div class="item-content"><a href="#">Full-time</a></div>
@@ -135,10 +122,13 @@
                     <div class="item-content"><a href="#">Add content ...</a></div>
                 </div>
             </div>
-        
-            <div class="flex-item comas-bg">
+
+            <div class="flex-item amazing comas-bg" ng-class="amazingClass" ng-init="showAmazingLink=true; showAmazingInput=false; showAmazingTxt=false">
                 <h4>The most amazing ...</h4>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+                <a class="squared-link" ng-show="showAmazingLink" ng-click="setAmazing()">Add content ...</a>
+                <textarea rows="7" class="txtbox" ng-show="showAmazingInput" ng-model="amazing" placeholder="Tell us about the best software you have worked on ..."></textarea>
+                <span class="glyphicon glyphicon-ok-sign savePortfolio" ng-show="showAmazingInput" ng-click="saveAmazing()"></span>
+                <p class="txt-comillas" ng-show="showAmazingTxt" ng-click="editAmazing()">{{amazing}}</p>
             </div>
 
             <div class="flex-item comas-bg">
