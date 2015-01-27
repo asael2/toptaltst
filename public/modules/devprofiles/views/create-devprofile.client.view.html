@@ -120,18 +120,20 @@
                 <h4>Sample code and algorithms</h4>
                 <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
             </div>
-            <!-- Availability -->
             <div class="flex-item double-item" ng-init="viewSelect = false; availability()">
-               
+            <!-- Availability -->
                 <div class="availability">  
                     <h4>Availability</h4>
                     <select ng-show="viewSelect" ng-model="available" ng-change="viewSelect = false" ng-options="opt as opt.label for opt in avOptions"> </select>
                     <span ng-click="viewSelect = true" ng-show="!viewSelect">{{available.label || 'Select' }}</span>
                 </div>
-
-                <div class="environment">
+            <!-- Environment -->
+                <div class="environment" ng-init="showEnvironmentLink=true; showEnvironmentInput=false; showEnvironmentTxt=false">
                     <h4>Preferred environment</h4>
-                    <div class="item-content"><a href="#">Add content ...</a></div>
+                    <span class="" ng-show="showEnvironmentLink" ng-click="setEnvironment()">Add content ...</span>
+                    <textarea class="txtbox-environment" ng-show="showEnvironmentInput" ng-model="environment" placeholder="Write a environment ..."></textarea>
+                    <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showEnvironmentInput" ng-click="saveEnvironment()"></span>
+                    <p class="txt-environment" ng-show="showEnvironmentTxt" ng-click="editEnvironment()">{{environment}}</p>
                 </div>
             </div>
             <!-- The most amazing -->

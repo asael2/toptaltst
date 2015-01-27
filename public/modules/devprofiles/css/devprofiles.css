@@ -634,7 +634,7 @@ map#map-canvas{
 
 
 .portfolio-portfolio, .experience-experience {
-	margin: 0px 12px;
+	margin: 0px 30px;
 	padding: 0;
 }
 .portfolio-portfolio li, .experience-experience li {
@@ -654,6 +654,9 @@ textarea.txtbox{
 	margin-top: 5px;
 	padding: 8px;
 }
+textarea.txtbox-environment{
+	padding-top: -8px;
+}
 
 .txt-comillas{
 	padding: 20px;
@@ -663,6 +666,9 @@ textarea.txtbox{
 	font-size: 1.1em;
 }
 
+.txt-environment{
+	padding: 0 10px;
+}
 
 .locationpicture{
 	position: relative;

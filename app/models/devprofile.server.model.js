@@ -44,6 +44,10 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	environment: {
+		type: String,
+		default: ''
+	},
 	skills: {
 		type: Array,
 		default: ''

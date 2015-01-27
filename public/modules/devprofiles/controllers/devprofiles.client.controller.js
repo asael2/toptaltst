@@ -29,7 +29,6 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			]
 		};
 		
-
 		// Create new Devprofile
 		$scope.create = function() {
 			// Create new Devprofile object
@@ -45,6 +44,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				inclients: this.inclients,
 				note: this.note,
 				available: this.available.label,
+				environment:this.environment,
 				mynote: this.mynote,
 			});
 
@@ -347,6 +347,30 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				$scope.showMyNoteInput = true;
 				$scope.showMyNoteTxt = false;
 				$scope.mynoteClass = "black-bg";
+			}
+		};
+
+		$scope.setEnvironment = function(){
+			$scope.showEnvironmentTxt = false;
+			$scope.showEnvironmentLink = false;
+			$scope.showEnvironmentInput = true;
+			$scope.environmentClass = "black-bg";
+			
+			$scope.saveEnvironment =function(){
+				if(!$scope.environment){
+					$scope.showEnvironmentLink = true;
+					$scope.environmentClass = "white-bg";
+				}else{
+					$scope.showEnvironmentTxt = true;
+					$scope.showEnvironmentInput = false;
+					$scope.environmentClass = "white-bg";
+				}
+			}
+
+			$scope.editEnvironment =function(){
+				$scope.showEnvironmentInput = true;
+				$scope.showEnvironmentTxt = false;
+				$scope.environmentClass = "black-bg";
 			}
 		};
 
