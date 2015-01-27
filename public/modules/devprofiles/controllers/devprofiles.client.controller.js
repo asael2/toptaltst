@@ -265,6 +265,30 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			}
 		};
 
+		$scope.setInclients = function(){
+			$scope.showInclientsTxt = false;
+			$scope.showInclientsLink = false;
+			$scope.showInclientsInput = true;
+			$scope.inclientsClass = "black-bg";
+			
+			$scope.saveInclients =function(){
+				if(!$scope.inclients){
+					$scope.showInclientsLink = true;
+					$scope.inclientsClass = "white-bg";
+				}else{
+					$scope.showInclientsTxt = true;
+					$scope.showInclientsInput = false;
+					$scope.inclientsClass = "white-bg";
+				}
+			}
+
+			$scope.editInclients =function(){
+				$scope.showInclientsInput = true;
+				$scope.showInclientsTxt = false;
+				$scope.inclientsClass = "black-bg";
+			}
+		};
+
 	}
 ]);
 

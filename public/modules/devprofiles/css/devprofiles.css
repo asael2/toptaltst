@@ -610,6 +610,13 @@ map#map-canvas{
 }
 
 
+.saveIcon{
+	display: block;
+	text-align: left;
+	padding: 3px 12px;
+	cursor: pointer;
+	float: left;
+}
 
 .portfolios-line, .experience-line{
 	/*border:1px solid red;*/
@@ -622,21 +629,8 @@ map#map-canvas{
 	font-size: 0.9em;
 }
 
-.savePortfolio, .saveExperience{
-	display: block;
-	text-align: left;
-	padding: 3px 12px;
-	cursor: pointer;
-	float: left;
-}
 
-.saveAmazing{
-	display: block;
-	text-align: left;
-	padding: 3px 12px;
-	cursor: pointer;
-	float: left;
-}
+
 
 .portfolio-portfolio, .experience-experience {
 	margin: 0px 12px;

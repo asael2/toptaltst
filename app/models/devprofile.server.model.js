@@ -36,6 +36,10 @@ var DevprofileSchema = new Schema({
 		type: Array,
 		default: ''
 	},
+	inclients: {
+		type: Array,
+		default: ''
+	},
 	portfolio: {
 		type: Object,
 		default: ''
