@@ -80,6 +80,7 @@
         </div>
 
         <div class="flex-container">
+
             <!-- Portfolio -->
             <div class="flex-item portfolio" ng-init="showPortfoliosInput=false; showPortfoliosLink=true; showPortfolioList=false" ng-class="portfolioClass">
                 <h4>Portfolio</h4>
@@ -97,6 +98,7 @@
                     </ul>
                 </div>
             </div>
+
             <!-- Experience -->
             <div class="flex-item experience" ng-init="showExperiencesInput=false; showExperiencesLink=true; showExperienceList=false" ng-class="experienceClass">
                 <h4>Experience</h4>
@@ -114,18 +116,41 @@
                     </ul>
                 </div>
             </div>
-            <!-- Sample code and algorithms -->
-            <div class="flex-item long-title">
+
+            <!-- Sample code -->
+            <div class="flex-item sCode" ng-init="showSCodeImg=false; showSCodeLink=false;">
                 <h4>Sample code and algorithms</h4>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+                <a class="squared-link" ng-show="showSCodeLink">Add content ...</a>                
+                <div class="sCode-picture"> 
+                    <div  class="sCode-picture-widget">
+                        <uploadcare-widget
+                            ng-model="object.image.info.uuidd"
+                            data-public-key="c48b5084038f60f2dd0d"
+                            data-locale="en"
+                            data-tabs="file url"
+                            data-images-only="true"
+                            data-path-value="false"
+                            data-preview-step="true"
+                            data-clearable="true"
+                            data-multiple="false"
+                            data-crop="240:240"
+                            on-upload-complete="sCode(info)"
+                            on-widget-ready="onUCWidgetReady(widget)"
+                            value="{{ object.image.info.cdnUrl }}"/>
+                    </div>
+                    <img ng-show="showSCodeImg" ng-src="{{sCode}}" class="sCode" alt="" height="240" width="240">  
+                </div>
             </div>
+
             <div class="flex-item double-item" ng-init="viewSelect = false; availability()">
+            
             <!-- Availability -->
-                <div class="availability">  
+                <div class="availability">
                     <h4>Availability</h4>
                     <select ng-show="viewSelect" ng-model="available" ng-change="viewSelect = false" ng-options="opt as opt.label for opt in avOptions"> </select>
                     <span ng-click="viewSelect = true" ng-show="!viewSelect">{{available.label || 'Select' }}</span>
                 </div>
+
             <!-- Environment -->
                 <div class="environment" ng-init="showEnvironmentLink=true; showEnvironmentInput=false; showEnvironmentTxt=false">
                     <h4>Preferred environment</h4>
@@ -134,7 +159,9 @@
                     <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showEnvironmentInput" ng-click="saveEnvironment()"></span>
                     <p class="txt-environment" ng-show="showEnvironmentTxt" ng-click="editEnvironment()">{{environment}}</p>
                 </div>
+
             </div>
+
             <!-- The most amazing -->
             <div class="flex-item amazing comas-bg" ng-class="amazingClass" ng-init="showAmazingLink=true; showAmazingInput=false; showAmazingTxt=false">
                 <h4>The most amazing ...</h4>
@@ -143,6 +170,7 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showAmazingInput" ng-click="saveAmazing()"></span>
                 <p class="txt-comillas" ng-show="showAmazingTxt" ng-click="editAmazing()">{{amazing}}</p>
             </div>
+
             <!-- In clients -->
             <div class="flex-item inclients comas-bg" ng-class="inclientsClass" ng-init="showInclientsLink=true; showInclientsInput=false; showInclientsTxt=false">
                 <h4>In clients I look for ...</h4>
@@ -151,6 +179,7 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showInclientsInput" ng-click="saveInclients()"></span>
                 <p class="txt-comillas" ng-show="showInclientsTxt" ng-click="editInclients()">{{inclients}}</p>
             </div>
+
             <!-- Location -->
             <div class="flex-item">
                 <h4>Location</h4>
@@ -162,6 +191,7 @@
 
                 <a class="squared-link" ng-href="#">Add content ...</a></div>
             </div>
+
             <!-- Note -->
             <div class="flex-item note comas-bg" ng-class="noteClass" ng-init="showNoteLink=true; showNoteInput=false; showNoteTxt=false">
                 <h4>Note</h4>
@@ -170,6 +200,7 @@
                 <span class="glyphicon glyphicon-ok-sign saveIcon" ng-show="showNoteInput" ng-click="saveNote()"></span>
                 <p class="txt-comillas" ng-show="showNoteTxt" ng-click="editNote()">{{note}}</p>
             </div>
+
         </div>
         
         <p class="separator-paragraph"> Let me introduce myself ...</p>
@@ -205,7 +236,6 @@
                     <p class="showOnMeOneLegend" ng-show="showOnMeOneLegend" ng-click="editOnMeOne()">{{onMeOneLegend}}</p>
                     <img ng-show="showOnMeOneImg" ng-src="{{myselfImg1}}" class="onMeOne" alt="" height="240" width="240" >  
                 </div>
-
             </div>
 
              <!-- On me 2 -->
@@ -237,10 +267,9 @@
                     <p class="showOnMeTwoLegend" ng-show="showOnMeTwoLegend" ng-click="editOnMeTwo()">{{onMeTwoLegend}}</p>
                     <img ng-show="showOnMeTwoImg" ng-src="{{myselfImg2}}" class="onMeTwo" alt="" height="240" width="240" >  
                 </div>
-
             </div>
 
-            <!-- my note -->
+            <!-- my note-->
             <div class="flex-item mynote comas-bg" ng-class="mynoteClass" ng-init="showMyNoteLink=true; showMyNoteInput=false; showMyNoteTxt=false">
                 <h4>The most amazing</h4>
                 <a class="squared-link" ng-show="showMyNoteLink" ng-click="setMyNote()">Add content ...</a>
@@ -276,6 +305,4 @@
     <div ng-include src="'/modules/devprofiles/views/footer-devprofile.client.view.html'"></div>
 
 </div>
-
-
 

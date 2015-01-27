@@ -687,7 +687,7 @@ textarea.txtbox-environment{
 .onMeOne-picture, .onMeTwo-picture{
 	position: relative;
 }
- .onMeOne-picture-widget, .onMeTwo-picture-widget {
+ .onMeOne-picture-widget, .onMeTwo-picture-widget, .sCode-picture-widget {
 	position: absolute;
 }
 
@@ -710,16 +710,30 @@ textarea.txtbox-environment{
 
 .showOnMeOneLegend, .showOnMeTwoLegend {
 	color: white;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.7);
 	position: absolute;
 	bottom: 0;
-	padding: 5px 10px;
+	padding: 15px 30px;
 	text-align: left;
 	top: auto;
 	min-height: 70px;
 	width: 100%;
 	margin: 0;
+	font-size: 0.9em;
 }
+.flex-item.sCode{
+	position: relative;
+}
+.sCode h4{
+	float: left;
+	position: absolute;
+	margin: 0;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+
+
 
 /* Landscape phones and down 
 @media (max-width: 480px) { 

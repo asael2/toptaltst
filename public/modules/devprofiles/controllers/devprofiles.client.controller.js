@@ -49,7 +49,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				environment:this.environment,
 				mynote: this.mynote,
 				onMeOneData:this.onMeOneData,
-				onMeTwoData:this.onMeTwoData
+				onMeTwoData:this.onMeTwoData,
+				sCode: this.sCode
 			});
 
 			// Redirect after save
@@ -260,6 +261,13 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			};	
 		};
 
+		$scope.sCode = function(image){
+			console.log("sCode: " + image.cdnUrl);
+			$scope.showSCodeLink=false;
+			$scope.sCode = image.cdnUrl;
+			$scope.showSCodeImg=true; 
+			$scope.$apply();	
+		};
 
 		$scope.setPortfolio = function(){
 			$scope.showPortfoliosLink = false;

@@ -44,6 +44,10 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	sCode: {
+		type: String,
+		default: ''
+	},
 	environment: {
 		type: String,
 		default: ''
