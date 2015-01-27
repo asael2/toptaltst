@@ -24,7 +24,6 @@
             </div>
             
             <div class="profile-panel">
-                
                 <div class="profile-info">
 
                 <!-- Developer Name -->
@@ -175,13 +174,42 @@
         
         <p class="separator-paragraph"> Let me introduce myself ...</p>
 
-        <div class="flex-container container-b">
+        <div class="flex-container ">
             
-            <div class="flex-item">
-             <div class="profile-picture-widget">
-                    <input type="hidden" name="picture" role="uploadcare-uploader" />
+            <!-- On me 1 -->
+            <div class="flex-item onme1" ng-init="showOnMeOneInput=false; showOnMeOneImg=false; showOnMeOneLink=false; showOnMeOneLegend=false;">
+               
+
+                <a class="squared-link" ng-show="showOnMeOneLink">Add content ...</a>
+                
+                <div class="onMeOne-picture">
+                    
+                    <div  class="onMeOne-picture-widget">
+                        <uploadcare-widget
+                            ng-model="object.image.info.uuidb"
+                            data-public-key="c48b5084038f60f2dd0d"
+                            data-locale="en"
+                            data-tabs="file url"
+                            data-images-only="true"
+                            data-path-value="false"
+                            data-preview-step="true"
+                            data-clearable="true"
+                            data-multiple="false"
+                            data-crop="240:240"
+                            on-upload-complete="onMeOne(info)"
+                            on-widget-ready="onUCWidgetReady(widget)"
+                            value="{{ object.image.info.cdnUrl }}"/>
+                    </div>
+
+                    <span ng-show="showOnMeOneInput" class="glyphicon glyphicon-ok-sign saveIcon" ng-click="saveOnMeOne()"></span>
+                    <input ng-show="showOnMeOneInput" ng-model="onMeOneLegend" ng-keyup="getKeyOnMe1($event.keyCode)" type="text" class="onMeOne-picture-legend-input" placeholder="Write a text for this image..."/>
+                    
+                    <p class="showOnMeOneLegend" ng-show="showOnMeOneLegend" ng-click="editOnMeOne()">{{onMeOneLegend}}</p>
+                    <img ng-show="showOnMeOneImg" ng-src="{{myselfImg1}}" class="onMeOne" alt="" height="240" width="240" > 
+                
                 </div>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+
+
             </div>
 
             <div class="flex-item">

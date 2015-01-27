@@ -64,6 +64,10 @@ var DevprofileSchema = new Schema({
 		type: Object,
 		default: ''
 	},
+	onMeOneData: {
+		type: Object,
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

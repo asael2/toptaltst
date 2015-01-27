@@ -161,7 +161,7 @@ header.navbar{
 		z-index: 2;
 		position: absolute;
 	}
-		.profile-picture .uploadcare-widget-button.uploadcare-widget-button-open {
+		.uploadcare-widget-button.uploadcare-widget-button-open {
 			background:none;
 			color: black;
 			line-height: 240px;
@@ -174,7 +174,7 @@ header.navbar{
 			border-radius: 0;
 		}
 
-		.profile-picture .uploadcare-widget-button.uploadcare-widget-button-open:hover{
+		.uploadcare-widget-button.uploadcare-widget-button-open:hover{
 			background: black;
 			color: whitesmoke;
 		}
@@ -683,6 +683,43 @@ textarea.txtbox-environment{
 	font-size: 0.8em
 }
 
+
+.onMeOne-picture{
+	position: relative;
+}
+.onMeOne-picture-widget {
+	position: absolute;
+}
+
+.onMeOne-picture-legend-input{
+	position: absolute;
+	bottom: 10px;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	display: block;
+	padding-right: 30px;
+}
+
+.onme1 span.glyphicon.glyphicon-ok-sign.saveIcon{
+	position: absolute;
+	top: 206px;
+	right: 0px;
+	z-index: 3;
+}
+
+.showOnMeOneLegend {
+	color: white;
+	background: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	bottom: 0;
+	padding: 5px 10px;
+	text-align: left;
+	top: auto;
+	min-height: 70px;
+	width: 100%;
+	margin: 0;
+}
 
 /* Landscape phones and down 
 @media (max-width: 480px) { 

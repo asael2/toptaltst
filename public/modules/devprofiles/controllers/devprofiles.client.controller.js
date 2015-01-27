@@ -28,6 +28,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				{ skill: '', period: '' }
 			]
 		};
+		$scope.onMeOneData = {image:'', tagline:''}
 		
 		// Create new Devprofile
 		$scope.create = function() {
@@ -46,6 +47,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				available: this.available.label,
 				environment:this.environment,
 				mynote: this.mynote,
+				onMeOneData:this.onMeOneData
 			});
 
 			// Redirect after save
@@ -201,9 +203,37 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		};
 
 		$scope.onUCUploadComplete = function(image){
+			console.log("original: "+image);
 			$scope.profileImg = image.cdnUrl;
 			$scope.$apply();
 		};
+
+		$scope.onMeOne = function(image){
+			// console.log("one: "+image.cdnUrl);
+			$scope.showOnMeOneLink=false;
+			$scope.showOnMeOneImg=true; 
+			$scope.showOnMeOneInput=true; 
+			$scope.myselfImg1 = image.cdnUrl;
+			$scope.$apply();
+			$scope.saveOnMeOne = function(){
+				$scope.showOnMeOneInput = false;
+				$scope.showOnMeOneLegend = true; 
+				$scope.onMeOneData.image = $scope.myselfImg1;
+				$scope.onMeOneData.tagline = $scope.onMeOneLegend;
+				console.log($scope.onMeOneData)		;		
+			};
+			$scope.getKeyOnMe1 = function(keyCode){
+				if (keyCode == '13'){
+					$scope.saveOnMeOne();
+				}
+			};
+			$scope.editOnMeOne = function(){
+				$scope.showOnMeOneInput=true;
+				$scope.showOnMeOneLegend=false; 
+			};	
+		};
+
+		
 
 		$scope.setPortfolio = function(){
 			$scope.showPortfoliosLink = false;
