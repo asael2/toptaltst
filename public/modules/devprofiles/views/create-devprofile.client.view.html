@@ -78,22 +78,45 @@
                 <div class="profile-actions">
                     <p><a class="black-btn" data-ng-click="create()"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
                     <p>(You can only publish a completed profile) </p>
-                    <p><a  class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
+                    <p><a class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
                 </div>
             </div>
 
         </div>
 
         <div class="flex-container">
+
+
             
-            <div class="flex-item">
+            <div class="flex-item portfolio" ng-init="showPortfoliosInput=false; showPortfoliosLink=true; showExperience=false" ng-class="itemClass">
+                
                 <h4>Portfolio</h4>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+                
+                <a class="squared-link" ng-show="showPortfoliosLink" ng-click="setPortfolio()">Add content ...</a>
+                
+                <div class="item-content" ng-show="showPortfoliosInput" class="black-bg">        
+                    <div class="portfolios-line" ng-repeat="option in experience.options" >
+                        <input type="text" ng-model="option.project" ng-change="change()" placeholder="Project name"/>
+                        <input type="text" ng-model="option.skills" ng-change="change()" placeholder="Skills used"/>
+                    </div>
+                    <span class="glyphicon glyphicon-ok-sign savePortfolio" ng-click="savePortfolio()"></span>
+                </div>
+
+                <div class="item-content" ng-show="showExperience" class="white-bg">        
+                    
+                    <ul class="portfolio-experience" ng-repeat="option in experience.options" >
+                        <li ng-show="option.project.length" ng-click="editPortfolio()"><span>{{option.project}},</span> {{option.skills}}</li>
+                    </ul>
+                    
+                    <!-- <span class="glyphicon glyphicon-plus-sign" ng-click="editPortfolio()"></span> -->
+                </div>
+
             </div>
+
 
             <div class="flex-item">
                 <h4>Experience</h4>
-                <div class="item-content"><a class="squared-link" href="#">Add content ...</a></div>
+                <div class="item-content"><a class="squared-link" >Add content ...</a></div>
             </div>
 
             <div class="flex-item long-title">

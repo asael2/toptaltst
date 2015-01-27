@@ -280,13 +280,32 @@ header.navbar{
 		box-flex:25%;
 		/*padding: 10px;*/
 		text-align: center;
+		overflow: hidden;
 	}
+		/*.flex-item:hover{
+			background: black;
+			color: white;
+		}*/
+
+		.white-bg{
+			background: white;
+			color: black;
+		}
+		.black-bg{
+			background: black;
+			color: white;
+		}
+			.black-bg input{
+				color: black;
+			}
+
+
 	.flex-item h4{
 		font-family: "Roboto", sans-serif;
 		font-weight: bold;
 		margin-top: 18px;
 	}
-	.flex-item .item-content a.squared-link{
+	.flex-item .squared-link{
 		color: #848484;
 		display: block;
 		height: 100%;
@@ -295,13 +314,13 @@ header.navbar{
 		font-family: sans-serif;
 		line-height: 185px;
 	}
-	.flex-container.container-b .item-content a.squared-link{
+	.flex-container.container-b .squared-link{
 		line-height: 240px;
 	}
 	
 	
 
-	.flex-item.long-title .item-content .squared-link{ 
+	.flex-item.long-title .squared-link{ 
 		margin-top: -19px;
 	}
 	.flex-item.comas-bg{
@@ -588,11 +607,39 @@ map#map-canvas{
 
 
 
+.portfolios-line{
+	/*border:1px solid red;*/
+	text-align: center;
+	margin: 2px
+}
+.portfolios-line input{
+	width: 45%;
+	padding: 0;
+	font-size: 0.9em;
+}
 
+.savePortfolio{
+	display: block;
+	text-align: left;
+	padding: 3px 12px;
+	cursor: pointer;
+	float: left;
+}
 
-
-
-
+.portfolio-experience {
+	margin: 0px 12px;
+	padding: 0;
+}
+.portfolio-experience li {
+    background: url(../img/bullet.png) no-repeat left 5px;
+    padding: 3px 20px;
+    text-align: left;
+    list-style: none;
+    text-transform: capitalize;
+}
+.portfolio-experience li span{
+	font-weight: bold;
+}
 
 /* Landscape phones and down 
 @media (max-width: 480px) { 

@@ -32,6 +32,10 @@ var DevprofileSchema = new Schema({
 		type: Array,
 		default: ''
 	},
+	portfolio: {
+		type: Object,
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

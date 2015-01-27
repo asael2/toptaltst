@@ -6,6 +6,17 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		
 		$scope.authentication = Authentication;
 		$scope.skills = [];
+		$scope.experience = {
+			options: [
+				{ project: '', skills: '' },
+				{ project: '', skills: '' },
+				{ project: '', skills: '' },
+				{ project: '', skills: '' },
+				{ project: '', skills: '' },
+				{ project: '', skills: '' },
+				{ project: '', skills: '' }
+			]
+		};
 
 		// Create new Devprofile
 		$scope.create = function() {
@@ -16,7 +27,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				languages: this.devLangs,
 				skills: this.skills,
 				profilePic: this.profileImg,
-
+				portfolio: this.experience
 			});
 
 			// Redirect after save
@@ -168,8 +179,21 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.$apply();
 		};
 
-		$scope.portfolio = function(){
-			
+		$scope.setPortfolio = function(){
+			$scope.showPortfoliosLink = false;
+			$scope.showPortfoliosInput = true;
+			$scope.itemClass = "black-bg";
+
+			$scope.savePortfolio =function(){
+				$scope.showPortfoliosInput = false;
+				$scope.showExperience = true;
+				$scope.itemClass = "white-bg";
+			}
+
+			$scope.editPortfolio =function(){
+				$scope.showPortfoliosInput = true;
+				$scope.showExperience = false;
+			}
 		};
 
 	}
