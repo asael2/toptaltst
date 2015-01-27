@@ -101,9 +101,21 @@
                 </div>
             </div>
 
-            <div class="flex-item">
+             <div class="flex-item experience" ng-init="showExperiencesInput=false; showExperiencesLink=true; showExperienceList=false" ng-class="experienceClass">
                 <h4>Experience</h4>
-                <div class="item-content"><a class="squared-link" >Add content ...</a></div>
+                <a class="squared-link" ng-show="showExperiencesLink" ng-click="setExperience()">Add content ...</a>
+                <div class="item-content" ng-show="showExperiencesInput" class="black-bg">
+                    <div class="experience-line" ng-repeat="option in experience.options" >
+                        <input type="text" ng-model="option.skill" placeholder="Skill"/>
+                        <input type="text" ng-model="option.time" placeholder="Time"/>
+                    </div>
+                    <span class="glyphicon glyphicon-ok-sign saveExperience"  ng-click="saveExperience()"></span>
+                </div>
+                <div class="item-content" ng-show="showExperienceList" class="white-bg">
+                    <ul class="experience-experience" ng-repeat="option in experience.options" >
+                        <li ng-show="option.skill.length" ng-click="editExperience()"><span>{{option.skill}},</span> {{option.time}}</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="flex-item long-title">

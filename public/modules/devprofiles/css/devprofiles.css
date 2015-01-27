@@ -611,18 +611,18 @@ map#map-canvas{
 
 
 
-.portfolios-line{
+.portfolios-line, .experience-line{
 	/*border:1px solid red;*/
 	text-align: center;
 	margin: 2px
 }
-.portfolios-line input{
+.portfolios-line input, .experience-line input{
 	width: 45%;
 	padding: 0;
 	font-size: 0.9em;
 }
 
-.savePortfolio{
+.savePortfolio, .saveExperience{
 	display: block;
 	text-align: left;
 	padding: 3px 12px;
@@ -638,18 +638,18 @@ map#map-canvas{
 	float: left;
 }
 
-.portfolio-portfolio {
+.portfolio-portfolio, .experience-experience {
 	margin: 0px 12px;
 	padding: 0;
 }
-.portfolio-portfolio li {
+.portfolio-portfolio li, .experience-experience li {
     background: url(../img/bullet.png) no-repeat left 5px;
     padding: 3px 20px;
     text-align: left;
     list-style: none;
     text-transform: capitalize;
 }
-.portfolio-portfolio li span{
+.portfolio-portfolio li span, .experience-experience li span{
 	font-weight: bold;
 }
 

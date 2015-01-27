@@ -40,6 +40,10 @@ var DevprofileSchema = new Schema({
 		type: Object,
 		default: ''
 	},
+	experience: {
+		type: Object,
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

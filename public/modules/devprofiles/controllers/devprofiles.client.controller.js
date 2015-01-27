@@ -39,8 +39,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				skills: this.skills,
 				profilePic: this.profileImg,
 				portfolio: this.portfolio,
-				amazing:this.amazing
-				// experience: this.experience
+				amazing:this.amazing,
+				experience: this.experience
 			});
 
 			// Redirect after save
@@ -213,6 +213,31 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				$scope.showPortfoliosInput = true;
 				$scope.showPortfolioList = false;
 				$scope.portfolioClass = "black-bg";
+			}
+		};
+
+		$scope.setExperience = function(){
+			$scope.showExperiencesLink = false;
+			$scope.showExperiencesInput = true;
+			$scope.experienceClass = "black-bg";
+
+			$scope.saveExperience =function(){
+				if($scope.experience.options[0].skill == ""){
+					console.log("nada")
+					$scope.showExperiencesLink = true; 
+					$scope.showExperienceList = false;
+					$scope.experienceClass = "white-bg";
+				} else {	
+					$scope.showExperiencesInput = false;
+					$scope.showExperienceList = true;
+					$scope.experienceClass = "white-bg";
+				}
+			}
+
+			$scope.editExperience =function(){
+				$scope.showExperiencesInput = true;
+				$scope.showExperienceList = false;
+				$scope.experienceClass = "black-bg";
 			}
 		};
 
