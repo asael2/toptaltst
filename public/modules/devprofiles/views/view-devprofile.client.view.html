@@ -104,11 +104,7 @@
                 <h4>Location</h4>
                 <div class="item-content">
                     <div>
-                        <map id="map-canvas"> </map>
-                        <span ng-init="mapear()" ></span>
-                        <!-- <iframe src="'https://www.google.com/maps/place/'+{{devprofile.location}}" width="240" height="240" frameborder="0" style="border:0"></iframe> -->
-<!-- <iframe ng-src="https://www.google.com/maps/place/{{devprofile.location}}" width="240" height="240" frameborder="0" style="border:0"></iframe> -->
-
+                        <map id="mapa-canvas" center="{{devprofile.location}}"> </map>
                         <a class="map-link" href="{{devprofile.mapLink}}" target="blank">{{devprofile.name}} lives in {{devprofile.location}}</a>
                     </div>
                    </div>

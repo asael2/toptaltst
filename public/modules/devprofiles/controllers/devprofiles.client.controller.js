@@ -112,7 +112,6 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					mapTypeControl: false,
 					navigationControl: false,
 					disableDefaultUI: true,
-	                // disableDoubleClickZoom:true,
 	                draggable: true,
 	                streetViewControl:false,
 	                mapTypeId:google.maps.MapTypeId.TERRAIN
@@ -464,10 +463,9 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.available = $scope.avOptions[1];
 		};
 
-		$scope.mapear = function(){
-
-			console.log(this.devprofile.location);
-		
+		$scope.setProject = function (id) {
+			$scope.currentProject = $scope.projects[id];
+			$scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.currentProject.url);
 		};
 
 	}

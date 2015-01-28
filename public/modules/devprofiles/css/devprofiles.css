@@ -1,3 +1,7 @@
+fieldset > div.text-center.form-group > a{
+	color: gray;
+}
+
 body {
 	color: #575757;
 }
