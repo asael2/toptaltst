@@ -104,8 +104,9 @@
                 <h4>Location</h4>
                 <div class="item-content">
                     <div>
-                        <map id="mapa-canvas" center="{{devprofile.location}}"> </map>
+                        <map id="mapa-canvas" center="{{devprofile.location}}"> <marker position="{{devprofile.ubiLatLng}}"> </marker> </map>
                         <a class="map-link" href="{{devprofile.mapLink}}" target="blank">{{devprofile.name}} lives in {{devprofile.location}}</a>
+
                     </div>
                    </div>
             </div>

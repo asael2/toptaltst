@@ -73,7 +73,11 @@ var DevprofileSchema = new Schema({
 		default: ''
 	},
 	devUbication: {
-		type: Object,
+		type: Array,
+		default: ''
+	},
+	ubiLatLng: {
+		type: Array,
 		default: ''
 	},
 	onMeOneData: {

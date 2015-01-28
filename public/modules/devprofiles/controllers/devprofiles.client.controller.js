@@ -38,6 +38,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				name: this.name,
 				location: this.location,
 				devUbication: this.devUbication,
+				ubiLatLng: this.ubiLatLng,
 				mapLink:this.mapLink,
 				languages: this.devLangs,
 				skills: this.skills,
@@ -112,6 +113,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					mapTypeControl: false,
 					navigationControl: false,
 					disableDefaultUI: true,
+	                // disableDoubleClickZoom:true,
 	                draggable: true,
 	                streetViewControl:false,
 	                mapTypeId:google.maps.MapTypeId.TERRAIN
@@ -166,15 +168,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				google.maps.event.addListener(autocomplete, 'place_changed', function() {	
 					var place = autocomplete.getPlace();
 					var ubication = place.geometry.location;
-
-					$scope.devUbication = ubication;
-					// map.setCenter(ubication);
-					//location for streetview
-					console.log(ubication.k);
-					console.log(ubication.D);
-					$scope.loc_k = ubication.k;
-					$scope.loc_D = ubication.D;
-
+					var ubiLatLng =  [];
 					var marker = new google.maps.Marker({
 					    position: place.geometry.location,
 					    animation: google.maps.Animation.DROP,
@@ -183,13 +177,16 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 					map.setZoom(12);
 					google.maps.event.trigger(map,'resize');
 					map.panTo(ubication);
-					
+					ubiLatLng.push(ubication.k, ubication.D);
+					$scope.ubiLatLng = ubiLatLng;
+					console.log(ubiLatLng);
+					$scope.devUbication = ubication;
+					$scope.loc_k = ubication.k;
+					$scope.loc_D = ubication.D;
 					$scope.devLocation = place.formatted_address;
 					$scope.location = $scope.devLocation;
 					$scope.showInputLocation = false;
-
 					$scope.mapLink = place.url; 
-					
 				});
 			}
 		};
@@ -222,7 +219,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 		};
 
 		$scope.onUCUploadComplete = function(image){
-			console.log("original: "+image);
+			console.log("main image: "+image);
 			$scope.profileImg = image.cdnUrl;
 			$scope.$apply();
 		};
@@ -461,11 +458,6 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				{ label: 'Full-time', value: 3 }
 			];
 			$scope.available = $scope.avOptions[1];
-		};
-
-		$scope.setProject = function (id) {
-			$scope.currentProject = $scope.projects[id];
-			$scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.currentProject.url);
 		};
 
 	}
