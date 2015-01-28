@@ -734,7 +734,7 @@ textarea.txtbox-environment{
 
 
  /*Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 950px) { 
 	
 	.flex-item{
 		flex:100%;	
@@ -756,9 +756,6 @@ textarea.txtbox-environment{
 	header.navbar{
 		height: auto;
 	}
-	header .div-b span.callus{
-		float: none;
-	}
 
 	.profile-actions{
 		height: auto;
@@ -766,13 +763,10 @@ textarea.txtbox-environment{
 		text-align: center;
 	}
 	.profile-actions p:nth-child(3){
-		margin: 45px auto;
+		margin-top: 0;
 	}
 
-	.profile-actions p:nth-child(3)::before {
-		content: "";
-		height:0;
-	}
+
 
 
 	.profile-picture {
