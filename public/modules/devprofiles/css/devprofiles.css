@@ -49,13 +49,18 @@ a, a:hover{
 .black-btn-disabled{
 	background: #C0C0C0;
 }
-.uploadcv-btn{
+.uploadcv-btn, .downloadcv-btn{
 	display: inline-block;
 	width: 9px;
 	height: 11px;
 	background: url(../img/uploadarrow.gif)no-repeat center center;
 	margin-right: 5px;
 }
+
+.downloadcv-btn{
+	background: url(../img/downloadarrow.gif)no-repeat center center;
+}
+
 .rounded-btn{
 	background: white;
 	color: black;
@@ -198,6 +203,7 @@ header.navbar{
 		float: right;
 		margin-left: 30px;
 	}
+		
 		.profile-info{
 			width: 420px;
 			float:left;
@@ -209,6 +215,10 @@ header.navbar{
 				margin: 15px 0 0;
 				text-transform: capitalize;
 			}
+			#createProfile .profile-info h3{
+				cursor: pointer;
+				
+			}
 			.profile-info p a{
 				font-weight: bold;
 				color: gray;
@@ -219,9 +229,14 @@ header.navbar{
 			
 			.addSkill, .addLang, .addLoc{
 				font-weight: bold;
-				cursor: pointer;
+				
 				text-transform: capitalize;
 				margin-bottom: 0;
+			}
+			
+			#createProfile .addSkill:hover, #createProfile .addLang:hover, #createProfile .addLoc:hover{
+				border:1px solid #B8B8B8;
+				cursor: pointer;
 			}
 
 			.profile-info .addASkill{
@@ -235,6 +250,7 @@ header.navbar{
 				padding: 3px;
 				border: 1px solid #B8B8B8;
 			}
+			
 
 		.profile-actions{
 			display: block;
@@ -243,6 +259,7 @@ header.navbar{
 			float: right;
 			padding-top: 20px;
 			position: relative;
+			text-align: center;
 		}
 
 		.profile-actions p:nth-child(2){
@@ -254,7 +271,7 @@ header.navbar{
 		.profile-actions p:nth-child(3){
 			margin: auto;
 			text-align: center;
-			width: 150px;
+			width: 160px;
 			margin-top: 95px;
 		}
 		
@@ -525,7 +542,9 @@ footer  {
 		top: 10px;
 		right: 5px;
 	}
-
+	.devInfo {
+		width: 90%;
+	}
 	.devInfo input{
 		width: 50%;
 		margin: 2px 0;
@@ -733,9 +752,22 @@ textarea.txtbox-environment{
 }
 
 
-
-
-
+	#viewProfile .addLang{
+		cursor: default;
+	}
+	#viewProfile .profile-actions-view{
+		/*display: none;*/
+	}
+	#viewProfile .profile-actions{
+		/*display: none;*/
+	}
+	#viewProfile .profile-panel{
+		float: left;
+		margin-left: 270px;
+	}	
+	.downloadcv{
+		display: none;
+	}
 
  /*Landscape phones and down */
 @media (max-width: 950px) { 
@@ -760,7 +792,9 @@ textarea.txtbox-environment{
 	header.navbar{
 		height: auto;
 	}
-
+	.top-profile{
+		margin-top: 0;
+	}
 	.profile-actions{
 		height: auto;
 		width: 100%;
@@ -769,9 +803,6 @@ textarea.txtbox-environment{
 	.profile-actions p:nth-child(3){
 		margin-top: 0;
 	}
-
-
-
 
 	.profile-picture {
 		position: inherit;
@@ -791,14 +822,8 @@ textarea.txtbox-environment{
 		margin: auto;
 	}
 
-
-
+	#viewProfile .profile-panel{
+			float: left;
+			margin: 20px;
+		}
 }
-/* Large desktop 
-@media (min-width: 1200px) { .top-profile{
-		background: green;
-	}	 }
-*/
-
-
-
