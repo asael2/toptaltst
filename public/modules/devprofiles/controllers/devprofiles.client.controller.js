@@ -37,6 +37,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			var devprofile = new Devprofiles ({
 				name: this.name,
 				location: this.location,
+				devUbication: this.devUbication,
+				mapLink:this.mapLink,
 				languages: this.devLangs,
 				skills: this.skills,
 				profilePic: this.profileImg,
@@ -103,6 +105,19 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.devprofile = Devprofiles.get({ 
 				devprofileId: $stateParams.devprofileId
 			});
+
+			var initialOpts = {
+					center:new google.maps.LatLng(0,0),
+					zoom:0,
+					mapTypeControl: false,
+					navigationControl: false,
+					disableDefaultUI: true,
+	                // disableDoubleClickZoom:true,
+	                draggable: true,
+	                streetViewControl:false,
+	                mapTypeId:google.maps.MapTypeId.TERRAIN
+				};
+				var map = new google.maps.Map(document.getElementById("map-canvas"), initialOpts);
 		};
 
 		$scope.clickedName = function(){
@@ -152,6 +167,8 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				google.maps.event.addListener(autocomplete, 'place_changed', function() {	
 					var place = autocomplete.getPlace();
 					var ubication = place.geometry.location;
+
+					$scope.devUbication = ubication;
 					// map.setCenter(ubication);
 					//location for streetview
 					console.log(ubication.k);
@@ -248,7 +265,7 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 				$scope.showOnMeTwoLegend = true; 
 				$scope.onMeTwoData.image = $scope.myselfImg2;
 				$scope.onMeTwoData.tagline = $scope.onMeTwoLegend;
-				console.log($scope.onMeTwoData)		;		
+				// console.log($scope.onMeTwoData)		;		
 			};
 			$scope.getKeyOnMe2 = function(keyCode){
 				if (keyCode == '13'){

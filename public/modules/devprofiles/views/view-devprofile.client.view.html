@@ -1,4 +1,182 @@
-<section data-ng-controller="DevprofilesController" data-ng-init="findOne()" class="content-width">
+<div id="content">
+  
+    <section data-ng-controller="DevprofilesController" data-ng-init="findOne()" id="viewProfile" class="content-width" > 
+
+        <div class="top-profile"> 
+            <div class="profile-picture">
+                <img ng-src="{{devprofile.profilePic}}" class="profileImg" alt="" height="240" width="240"> 
+            </div>
+            
+            <div class="profile-panel">
+                <div class="profile-info">
+
+                <!-- Developer Name -->
+                	<h3>{{devprofile.name}}</h3>
+
+                <!-- Developer location -->
+                    <div class="devInfo">
+                        <p class="addLoc">{{devprofile.location}} </p>
+                    </div>
+                    
+                <!-- Developer languages -->
+                    <div class="devInfo">
+                        <p class="addLang" ng-show="!showInputLang" ng-click="setLanguages()">{{devprofile.languages}}</p>
+                    </div>
+
+                <!-- Developer skills -->
+                    <div class="devInfo">
+                        <ul class="skillist">
+                            <li ng-repeat="skl in devprofile.skills">{{skl.skill}}</li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="profile-actions">
+                    <p><a class="black-btn" data-ng-click="create()"> Save profile </a> <a href="#" class="black-btn black-btn-disabled"> Publish profile </a>  </p>
+                    <p>(You can only publish a completed profile) </p>
+                    <p><a class="black-btn"><span class="uploadcv-btn"></span> Upload Resume </a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+
+            <!-- Portfolio -->
+            <div class="flex-item portfolio">
+                <h4>Portfolio</h4>
+                <div class="item-content" class="white-bg">
+                    <ul class="portfolio-portfolio" ng-repeat="option in devprofile.portfolio.options" >
+                        <li ng-show="option.project.length"><span>{{option.project}},</span> {{option.skills}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="flex-item experience" >
+                <h4>Experience</h4>
+                <div class="item-content" >
+                    <ul class="experience-experience" ng-repeat="option in devprofile.experience.options" >
+                        <li ng-show="option.skill.length"><span>{{option.skill}},</span> {{option.time}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sample code -->
+            <div class="flex-item sCode">
+                <h4>Sample code and algorithms</h4>               
+                <div class="sCode-picture"> 
+                    <img ng-src="{{devprofile.sCode}}" class="sCode" alt="" height="240" width="240">  
+                </div>
+            </div>
+
+            <div class="flex-item double-item">
+            
+            <!-- Availability -->
+                <div class="availability">
+                    <h4>Availability</h4>
+                    <span>{{devprofile.available}}</span>
+                </div>
+
+            <!-- Environment -->
+                <div class="environment">
+                    <h4>Preferred environment</h4>
+                    <p class="txt-environment">{{devprofile.environment}}</p>
+                </div>
+
+            </div>
+
+            <!-- The most amazing -->
+            <div class="flex-item amazing comas-bg">
+                <h4>The most amazing ...</h4>
+                <p class="txt-comillas">{{devprofile.amazing}}</p>
+            </div>
+
+            <!-- In clients -->
+            <div class="flex-item inclients comas-bg">
+                <h4>In clients I look for ...</h4>
+                <p class="txt-comillas">{{devprofile.inclients}}</p>
+            </div>
+
+            <!-- Location -->
+            <div class="flex-item">
+                <h4>Location</h4>
+                <div class="item-content">
+                    <div>
+                        <map id="map-canvas"> </map>
+                        <a class="map-link" href="{{devprofile.mapLink}}" target="blank">{{devprofile.name}} lives in {{devprofile.location}}</a>
+                    </div>
+                   </div>
+            </div>
+
+            <!-- Note -->
+            <div class="flex-item note comas-bg" ng-class="noteClass">
+                <h4>Note</h4>
+                <p class="txt-comillas" ng-click="editNote()">{{devprofile.note}}</p>
+            </div>
+
+        </div>
+        
+        <p class="separator-paragraph"> Let me introduce myself ...</p>
+
+        <div class="flex-container ">
+            
+            <!-- On me 1 -->
+            <div class="flex-item onme1">            
+                <div class="onMeOne-picture">
+                    <p class="showOnMeOneLegend">{{devprofile.onMeOneData.tagline}}</p>
+                    <img ng-src="{{devprofile.onMeOneData.image}}" class="onMeOne" alt="" height="240" width="240" >  
+                </div>
+            </div>
+
+             <!-- On me 2 -->
+            <div class="flex-item onme2">            
+                <div class="onMeTwo-picture">
+                    <p class="showOnMeTwoLegend">{{devprofile.onMeTwoData.tagline}}</p>
+                    <img ng-src="{{devprofile.onMeTwoData.image}}" class="onMeTwo" alt="" height="240" width="240" >  
+                </div>
+            </div>
+
+            <!-- my note-->
+            <div class="flex-item mynote comas-bg" ng-class="mynoteClass">
+                <h4>The most amazing</h4>
+                <p class="txt-comillas">{{devprofile.mynote}}</p>
+            </div>
+
+            <!-- streetview image -->
+            <div class="flex-item locationpicture">
+                <div ng-show="showStreetviewImg">
+                    <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}} <span>(see map)</span></a>
+                    <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{devLocation}}&fov=90&heading=235&pitch=0.7">
+                    <!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{loc_k}},{{loc_D}}&fov=90&heading=235&pitch=-0.7"> -->
+                </div>
+
+                <a class="squared-link" href="#" ng-show="!showStreetviewImg">Add content ...</a>
+            </div>
+
+        </div>
+        
+        <div class="separator-block"> Important! Please fill out the Q&amp;A form 
+            <a href="#" class="rounded-btn">Q&amp;A FORM</a>
+            <p>5 of 25 questions answered</p>
+        </div>
+
+        <!-- Include Top Skills -->
+        <div ng-include src="'/modules/devprofiles/views/topskills-devprofile.client.view.html'"></div>
+
+    </section>
+       
+    <!-- Include footer -->
+    <div ng-include src="'/modules/devprofiles/views/footer-devprofile.client.view.html'"></div>
+
+</div>
+
+
+
+
+
+
+<!-- <section data-ng-controller="DevprofilesController" data-ng-init="findOne()" class="content-width">
 
 	<div class="page-header">
 		<h1 data-ng-bind="devprofile.name"></h1>
@@ -20,3 +198,4 @@
 		</em>
 	</small>
 </section>
+ -->

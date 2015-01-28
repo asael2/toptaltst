@@ -583,7 +583,7 @@ footer  {
 			cursor: pointer;
 		}
 
-#createProfile > div:nth-child(2) > div:nth-child(7) > div{
+#createProfile > div:nth-child(2) > div:nth-child(7) > div, #viewProfile > div:nth-child(2) > div:nth-child(7) > div{
 	position: relative;
 }
 
@@ -610,7 +610,6 @@ map#map-canvas{
 	letter-spacing: 1px;
 }
 
-
 .saveIcon{
 	display: block;
 	text-align: left;
@@ -629,9 +628,6 @@ map#map-canvas{
 	padding: 0;
 	font-size: 0.9em;
 }
-
-
-
 
 .portfolio-portfolio, .experience-experience {
 	margin: 0px 30px;

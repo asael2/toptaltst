@@ -24,6 +24,10 @@ var DevprofileSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	mapLink: {
+		type: String,
+		default: ''
+	},
 	profilePic: {
 		type: String,
 		default: ''
@@ -68,7 +72,15 @@ var DevprofileSchema = new Schema({
 		type: Object,
 		default: ''
 	},
+	devUbication: {
+		type: Object,
+		default: ''
+	},
 	onMeOneData: {
+		type: Object,
+		default: ''
+	},
+	onMeTwoData: {
 		type: Object,
 		default: ''
 	},
