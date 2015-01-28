@@ -145,13 +145,10 @@
 
             <!-- streetview image -->
             <div class="flex-item locationpicture">
-                <div ng-show="showStreetviewImg">
-                    <a class="map-link" href="{{mapLink}}" target="blank">{{name}} lives in {{devLocation}} <span>(see map)</span></a>
-                    <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{devLocation}}&fov=90&heading=235&pitch=0.7">
-                    <!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{loc_k}},{{loc_D}}&fov=90&heading=235&pitch=-0.7"> -->
+                <div>
+                    <a class="map-link" href="{{devprofile.mapLink}}" target="blank">{{devprofile.name}} lives in {{devprofile.location}} <span>(see map)</span></a>
+                    <img src="https://maps.googleapis.com/maps/api/streetview?size=240x240&location={{devprofile.location}}&fov=90&heading=235&pitch=0.7">
                 </div>
-
-                <a class="squared-link" href="#" ng-show="!showStreetviewImg">Add content ...</a>
             </div>
 
         </div>
