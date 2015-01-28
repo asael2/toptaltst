@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/toptaltst',
+	// db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/toptal',
+	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://toptaluser:qwerty@ds063869.mongolab.com:63869/toptal',
 	assets: {
 		lib: {
 			css: [
