@@ -98,12 +98,17 @@
                 <p class="txt-comillas">{{devprofile.inclients}}</p>
             </div>
 
-            <!-- Location -->
+            <!-- Map Location -->
+
             <div class="flex-item">
                 <h4>Location</h4>
                 <div class="item-content">
                     <div>
                         <map id="map-canvas"> </map>
+                        <span ng-init="mapear()" ></span>
+                        <!-- <iframe src="'https://www.google.com/maps/place/'+{{devprofile.location}}" width="240" height="240" frameborder="0" style="border:0"></iframe> -->
+<!-- <iframe ng-src="https://www.google.com/maps/place/{{devprofile.location}}" width="240" height="240" frameborder="0" style="border:0"></iframe> -->
+
                         <a class="map-link" href="{{devprofile.mapLink}}" target="blank">{{devprofile.name}} lives in {{devprofile.location}}</a>
                     </div>
                    </div>
@@ -153,9 +158,10 @@
 
         </div>
         
-        <div class="separator-block"> Important! Please fill out the Q&amp;A form 
+        <div class="separator-block">Important! Please fill out the Q&amp;A form 
             <a href="#" class="rounded-btn">Q&amp;A FORM</a>
             <p>5 of 25 questions answered</p>
+
         </div>
 
         <!-- Include Top Skills -->

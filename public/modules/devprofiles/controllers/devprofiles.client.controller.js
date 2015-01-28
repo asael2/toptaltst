@@ -464,6 +464,12 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.available = $scope.avOptions[1];
 		};
 
+		$scope.mapear = function(){
+
+			console.log(this.devprofile.location);
+		
+		};
+
 	}
 ]);
 
