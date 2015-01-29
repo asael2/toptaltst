@@ -106,19 +106,6 @@ angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$s
 			$scope.devprofile = Devprofiles.get({ 
 				devprofileId: $stateParams.devprofileId
 			});
-
-			var initialOpts = {
-					center:new google.maps.LatLng(0,0),
-					zoom:0,
-					mapTypeControl: false,
-					navigationControl: false,
-					disableDefaultUI: true,
-	                // disableDoubleClickZoom:true,
-	                draggable: true,
-	                streetViewControl:false,
-	                mapTypeId:google.maps.MapTypeId.TERRAIN
-				};
-				var map = new google.maps.Map(document.getElementById("map-canvas"), initialOpts);
 		};
 
 		$scope.clickedName = function(){

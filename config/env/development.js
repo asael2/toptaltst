@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://toptaluser:qwerty@ds063869.mongolab.com:63869/toptal',
+	db: 'mongodb://localhost/toptaltst-dev',
+	// db: 'mongodb://toptaluser:qwerty@ds063869.mongolab.com:63869/toptal',
 	app: {
 		title: 'toptaltst - Development Environment'
 	},
