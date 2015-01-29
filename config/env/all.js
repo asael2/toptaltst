@@ -29,7 +29,7 @@ module.exports = {
 				'public/lib/ngmap/build/scripts/ng-map.min.js', 
 				'public/lib/angular-uploadcare/angular-uploadcare.js',
 				'public/lib/ngmap/build/scripts/ng-map.min.js',
-				'public/lib/angular-route/angular-route/angular-route.js', 
+				'public/lib/angular-route/angular-route.js', 
 			]
 		},
 		css: [
