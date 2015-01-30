@@ -1,7 +1,7 @@
 'use strict';
 
 // Devprofiles controller
-angular.module('devprofiles').controller('DevprofilesController', ['$scope', 'ngRoute', '$stateParams', '$location', 'Authentication', 'Devprofiles',
+angular.module('devprofiles').controller('DevprofilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Devprofiles',
 	function($scope, $stateParams, $location, Authentication, Devprofiles) {
 		
 		$scope.authentication = Authentication;
